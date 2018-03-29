@@ -1,0 +1,151 @@
+/* 主体 */
+.g-body {
+    padding: 0 0 100px 0;
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.g-head {
+    font-size: 14px;
+    color: #3eae49;
+}
+
+.g-head a {
+    color: #3eae49;
+}
+
+.g-head a:hover {
+    color: #17a325;
+}
+
+.u-arrow {
+    margin: 0 5px;
+}
+
+/* 右侧内容.主要样式 */
+.g-main {
+    width: 790px;
+    position: relative;
+    float: right;
+}
+
+.m-title {
+    color: #35af3b;
+    margin-bottom: 10px;
+}
+
+.m-title-h3 {
+    font-size: 18px;
+    float: left;
+}
+
+.group {
+    margin-bottom: 20px;
+}
+
+/* formInfor表单内样式 */
+.msg {
+    *width: 758px;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    *padding-left: -8px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.label {
+    width: 70px;
+    margin-right: 10px;
+    text-align: right;
+    display: inline-block;
+    line-height: 1.8;
+}
+
+.control select {
+    height: auto;
+    width: 150px;
+}
+
+.finished {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* formPro表单内样式 */
+.m-formPro {
+    line-height: 1.8;
+    *line-height: 2.4;
+}
+
+.m-formPro h4 {
+    margin: 10px 0 12px;
+    *font-size: 13px;
+}
+
+.m-formPro input {
+    margin-right: 3px;
+}
+
+.m-formPro input[type="text"] {
+    width: 50px;
+    padding: 0 !important;
+}
+
+.pro_radio, .pro_checkbox {
+    cursor: pointer;
+    margin-right: 5px;
+    min-height: 20px;
+}
+
+.tips-v {
+    margin: 5px 0;
+    padding: 10px 0px 10px 50px;
+    *padding-left: 20px;
+    border: 1px solid #F5DDAB;
+    background: url(../images/icons.png) no-repeat 0 0;
+    *background: url(../images/icons-ie6.png) no-repeat 0 0;
+    background-position: 25px -257px;
+    background-color: #FEFEDA;
+    display: none;
+    *margin-top:20px;
+}
+
+.tips-v b {
+    color: red;
+}table {
+    background-color: #fff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+}
+.table {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.table th, .table td {
+    line-height: 35px;
+    padding: 6px;
+    text-align: center;
+    vertical-align: top;
+}
+.table td.special_color a {
+    color: #d54c90;
+}
+.table th {
+    font-weight: 700;
+}
+.table .marked {
+    color: #999;
+}
+.table_nogrid {
+    border: 2px solid #cccacc;
+}
+.table_nogrid thead {
+    background-color: #dcd0d2;
+}
+.table_striped tbody > tr:nth-child(2n) > td, .table_striped tbody > tr:nth-child(2n) > th {
+    background-color: #fdf9fa;
+}
+

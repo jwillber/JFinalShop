@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>收货地址</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/dialog_style.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+<style type="text/css">
+.oldAddress li div a:nth-child(1):before {
+	content:none;
+}
+</style>
+</head>
+<body class="bgc_ecedf1">
+	<header class="bar">
+		<div class="goBack" onclick="history.go(-1)"></div>
+		<h2>地址管理</h2>
+		<a href="${base}/"></a>
+	</header>
+	<div class="pwrap">
+		<div class="editAddress">
+			<a href="${base}/member/receiver/add">新建收货地址</a>
+		</div>
+		<ul class="oldAddress">
+			[#list receivers as receiver]
+				<li>
+					<p><em>${receiver.phone}</em>${receiver.consignee}</p>
+					<p>${receiver.areaName}${receiver.address}</p>
+					<div>
+	                   <a href="${base}/member/receiver/edit?id=${receiver.id}">编辑</a>
+	                   <a href="javascript:;" class="delete" val="${receiver.id}">删除</a>
+					</div>
+				</li>
+			[/#list]
+		</ul>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+ $(document).ready(function() {
+	 
+	 var $delete = $(".oldAddress a.delete");
+	    
+	    // 删除
+	    $delete.click(function() {
+	        var $this = $(this);
+	        if(confirm("您确定要删除吗？")){
+	            $.ajax({
+	                url: "delete",
+	                type: "POST",
+	                data: {id: $this.attr("val")},
+	                dataType: "json",
+	                cache: false,
+	                success: function(message) {
+	                    if (message.type == "success") {
+	                        $this.closest("li").remove();
+	                    }
+	                }
+	            });
+	        }
+	        return false;
+	    });
+	 
+ });
+ </script>

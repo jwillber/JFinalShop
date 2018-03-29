@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文章列表</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="${base}/templates/${config.theme}/front/static/css/base_bolg.css" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+</head>
+<body>
+<!-- header start -->
+[#include "templates/${config.theme}/front/header.html"]
+<!-- header end -->
+<div class="bolg_box">
+	<div class="bolg_main">
+		<div class="bolg_nav">
+			<span>您现在的位置是：</span>
+         	<a href="${base}/">首页</a> 
+         	[@article_category_parent_list articleCategoryId=articleCategory.id]
+         		[#list articleCategories as category]
+		         	&gt;&gt; <a href="${category.path}">${category.name}</a>
+         		[/#list]
+    		[/@article_category_parent_list] 
+   		</div>
+      	<div class="bolg_left fl">
+			<div class="vip_story box_radius box_show01">
+				<div class="til topline">${articleCategory.name}<span>News</span></div>
+				<p class="ban_img"><img src="${base}/templates/${config.theme}/front/static/images/news_banner.jpg"></p>
+				<div class="s_menu">
+					[@article_category_children_list articleCategoryId=articleCategory.parent ]
+						[#list articleCategories as category]
+					        <a href="${base}${category.path}" >${category.name}</a>
+						[/#list]
+					[/@article_category_children_list]
+				</div>
+			 </div>      
+    	</div>
+        <div class="bolg_right fr">
+        	<div style="margin-top:12px;"></div>
+      		<div class="list_box box_show02">
+          		<div class="divlist">
+          			[#list page.list as article]
+	               		<div class="bor_dashed"><a target="_blank" href="${base}${article.path}">${article.title}</a></div>
+          			[/#list]
+				</div>
+      		</div>
+ 			<div id="pager" class="pagebar">
+    			<!-- pagination start -->
+	    		[@pagination pageNumber = page.pageNumber totalPages = page.totalPage]
+					[#include "templates/${config.theme}/front/pagination.html"]
+				[/@pagination]
+    			<!-- pagination end -->
+    		</div>
+   		</div>
+	</div>
+</div>
+<div style="clear:both; height:50px;"></div> 
+<!-- footer start -->
+[#include "templates/${config.theme}/front/footer.html"]
+<!-- footer end -->
+</body>
+</html> 

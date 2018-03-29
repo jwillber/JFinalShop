@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>查看订单</title>
+[#include "/WEB-INF/admin/include/common.html"]
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>查看订单</h5>
+            </div>
+            <form id="completeForm" action="complete" method="post">
+		        <input type="hidden" name="id" value="${order.id}" />
+		    </form>
+		    <form id="shippingForm" action="shipping" method="post">
+		        <input type="hidden" name="id" value="${order.id}" />
+		    </form>
+           <div class="tabs-container form-line">
+               <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1">订单信息</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-2">商品信息</a></li>
+                </ul>
+                <div class="ibox-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body form-horizontal">
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">编号：</label>
+	                            <div class="col-sm-3">
+	                                ${order.sn}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">创建日期：</label>
+	                            <div class="col-sm-3">
+	                                ${order.createDate}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">状态：</label>
+	                            <div class="col-sm-3">
+	                                ${order.statusName}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">配送方式：</label>
+	                            <div class="col-sm-3">
+	                                ${order.shippingMethodName}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">金额：</label>
+	                            <div class="col-sm-3">
+	                                                                                                ￥${order.amount}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">商品数量：</label>
+	                            <div class="col-sm-3">
+	                                ${order.quantity}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">运费：</label>
+	                            <div class="col-sm-3">
+	                                                                                                ￥${order.freight}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">支付手续费：</label>
+	                            <div class="col-sm-3">
+	                                                                                                ￥${order.fee}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">支付方式：</label>
+	                            <div class="col-sm-3">
+	                                ${order.paymentMethodName}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">收货人：</label>
+	                            <div class="col-sm-3">
+	                                ${order.consignee}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">地区：</label>
+	                            <div class="col-sm-3">
+	                                ${order.areaName}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">地址：</label>
+	                            <div class="col-sm-3">
+	                                ${order.address}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">邮编：</label>
+	                            <div class="col-sm-3">
+	                               ${order.zipCode}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">电话：</label>
+	                            <div class="col-sm-3">
+	                                ${order.phone}
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-sm-3 control-label">附言：</label>
+	                            <div class="col-sm-3">
+	                                ${order.memo}
+	                            </div>
+	                        </div>
+                    </div>
+                </div>
+                <div id="tab-3" class="tab-pane">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>商品编号</th>
+						                <th>商品名称</th>
+						                <th>商品价格</th>
+						                <th>数量</th>
+						                <th>小计</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     [#list order.orderItems as orderItem]
+				                    <tr>
+					                    <td>${orderItem.sn}</td>
+					                    <td>${orderItem.name}</td>
+					                    <td>￥${orderItem.price}</td>
+					                    <td>${orderItem.quantity}</td>
+					                    <td>￥${orderItem.subtotal}</td>
+				                    </tr>
+				                    [/#list]
+                                 </tbody>
+                             </table>
+                         </div>
+                     </div>
+                </div>
+                <div class="modal-footer col-sm-3 col-sm-offset-2">
+                    <button type="submit" class="btn btn-w-m btn-primary">确定</button>
+                    <button type="button" class="btn btn-w-m btn-default" onclick="history.back(); return false;">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+$().ready(function() {
+
+    var $completeForm = $("#completeForm");
+    var $shippingForm = $("#shippingForm");
+    var $completeButton = $("#completeButton");
+    var $shippingButton = $("#shippingButton");
+    
+    // 完成
+    $completeButton.click(function() {
+        var $this = $(this);
+        $.dialog({
+            type: "warn",
+            content: "确定要完成?",
+            onOk: function() {
+                $completeForm.submit();
+            }
+        });
+    });
+    // 发货
+    $shippingButton.click(function() {
+        var $this = $(this);
+        $.dialog({
+            type: "warn",
+            content: "确定要发货?",
+            onOk: function() {
+                $shippingForm.submit();
+            }
+        });
+    });
+
+});
+</script>

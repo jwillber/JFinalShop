@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>订单支付</title>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/layout.min.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/common.min.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+</head>
+<body>
+<header id="header" class="header clearfix">
+    <div class="head_left fl"><a href="javascript:history.back(-1);"><span class="h_back"></span></a></div>
+    <span class="headtit">订单支付</span>
+    <div class="head_right fr"><a href="${base}/"><span class="h_home"></span></a></div>
+</header>
+<div style="line-height:44px; height:44px; width:100%"></div>
+<div class="pwrap">
+    <ul class="oldAddress">
+         <li>
+             <p>订&nbsp;&nbsp;单&nbsp;&nbsp;号：${order.sn}</p>
+             <p>订单金额：<span class="order_money">￥${order.amount}</span></p>
+             <p>配送方式: ${order.shippingMethodName}</p>
+         </li>
+    </ul>
+    <form action="${base}/payment/pay" method="post" id="inputForm">
+        <input type="hidden" name="orderId" value="${order.id}">
+        <ul class="oldAddress">
+	         <li>
+	             <p><input type="radio" name="paymentMethod" value="weixin" id="weixin" checked/><label for="weixin">微信支付</label></p>
+	             <p><input type="radio" name="paymentMethod" value="alipay" id="alipay"/><label for="alipay">支付宝支付</label></p>
+	         </li>
+	    </ul>
+	    <div class="bottomdiv clearfix">
+	         <div class="inner clearfix">
+	            <a href="javascript:;" class="fr btn_sure" id="btnOrder">支付</a>
+	         </div>
+	     </div>
+     </form>
+ </div>
+ </body>
+ </html>
+  <script type="text/javascript">
+ $(document).ready(function() {
+     
+     $("#btnOrder").on("click",function(){
+         $('#inputForm').submit();
+     });
+ });
+ </script>

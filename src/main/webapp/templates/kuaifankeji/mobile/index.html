@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link href="${base}/templates/${config.theme}/mobile/static/css/common.min.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/mobile/static/css/index.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+<script src="${base}/templates/${config.theme}/mobile/static/js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${base}/templates/${config.theme}/mobile/static/js/swipe.js"></script>
+<style type="text/css">
+	.hotBuy li {position:relative;}
+	.pronum {position:absolute;right:0px;bottom:1.5em;}
+	.prolist ul {margin-bottom:20px;}
+</style>
+</head>
+<body>
+	<header class="header">
+		<div class="logo fl"><a href="${base}/"><img src="${base}/templates/${config.theme}/mobile/static/images/logo.png" alt="" /></a></div>
+		<div class="head_meun"><a href="${base}/view/help"></a></div>
+	</header>
+	<ul class="meunTab">
+		<li class="cur" >热卖</li>
+		<li>快速购买</li>
+	</ul>
+	<div class="index_warp" style="display: block">
+		<!--scroll-->
+		[@ad_position id = 3]
+                <div class="pro_slide" id="scroll_img">
+		<ul>
+		[#list adPosition.ads as ad]
+		<li><a href="${ad.url}"><img src="${ad.image}" width="720"/></a></li>
+		[/#list]
+		</ul>
+		<ol id='scroll_num'>
+		[#list adPosition.ads as ad]
+		<li [#if ad_index==0]class="cur"[/#if]></li>
+		[/#list]
+		</ol>
+		</div>
+		<script>
+		          var bullets = document.getElementById('scroll_num').getElementsByTagName('li');
+		         var slider = Swipe(document.getElementById('scroll_img'), {
+		             auto: 3000,
+		             continuous: true,
+		             callback: function(pos) {
+		                 var i = bullets.length;
+		                 while (i--) {
+		                     bullets[i].className = '';
+		                 }
+		                 bullets[pos].className = 'cur';
+		             }
+		         });
+		
+		
+		         
+		    </script>
+          [/@ad_position]
+		<!--scroll-->
+		<nav><a href="javascript:void(0)" onClick="fenlei(0)">叶菜类</a><a href="javascript:void(0)" onClick="fenlei(1)">瓜果类</a><a href="javascript:void(0)" onClick="fenlei(2)">根茎类</a><a href="javascript:void(0)" onClick="fenlei(0)" id="fenlei">商品分类</a>
+		</nav>
+		<ul class="ad_chart">
+			[@ad_position id = 4]
+                    [#list adPosition.ads as ad]
+					<li><a href="${ad.url}"><img src="${ad.image}"/></a></li>
+					[/#list]
+            [/@ad_position]
+		</ul>
+		<div class="hotBuy">
+			<h2>68热卖</h2>
+			<ul>
+				[@product_list count=9 type=3 orderBy="sales desc" ]
+					[#list products as product]
+						<li>
+							<a href="${base}${product.path}"><img src="${product.image}" alt=""/></a>
+							<a href="${base}${product.path}">${product.name}</a>
+							<div class="pronum">
+								<a id="hotReduceProduct_${product.id}" onClick="hotReduceProduct('${product.id}');" style="display: none"></a>
+						        <span id="hotProductQuantity_${product.id}" class="count"></span>
+						        <a id="hotAddProduct_${product.id}" onClick="hotAddProduct('${product.id}');"></a>
+							</div>
+							<p>
+								<em>${product.specifications}</em>
+								<span>￥${product.price}</span>
+								<i>￥${product.market_price}</i>
+							</p>
+						</li>
+					[/#list]
+				[/@product_list]
+			</ul>
+			<p><a href="javascript:void (0)" onClick="fenlei(0)">点击查看全部商品>></a></p>
+			<div style="height: 50px"></div>
+		</div>
+	</div>
+	<div class="index_warp iw">
+		<div class="pro_sh">
+			<a href="${base}/product/search">搜索</a>
+			<p><em>公告</em>购满38元，门店免费配送上门！</p>
+		</div>
+		<div class="category">
+			<ul>
+				<li val="1"><a href="javascript:;">叶菜类</a></li>
+				<li val="2"><a href="javascript:;">瓜果类</a></li>
+				<li val="3"><a href="javascript:;">根茎类</a></li>
+				<li val="4"><a href="javascript:;">菌菇类</a></li>
+				<li val="5"><a href="javascript:;">肉禽蛋</a></li>
+				<li val="6"><a href="javascript:;">海　鲜</a></li>
+				<li val="7"><a href="javascript:;">水　果</a></li>
+				<li val="8"><a href="javascript:;">豆制品</a></li>
+				<li val="9"><a href="javascript:;">粮　油</a></li>
+				<li val="10"><a href="javascript:;">干货汤品</a></li>
+				<li val="11"><a href="javascript:;">奶制品</a></li>				
+			</ul>
+		</div>
+		<div class="prolist">
+			<ul class="ccbg"></ul>
+		</div>
+	</div>
+	<!-- header start -->
+	<footer>
+	    <a class="cur" href="${base}/">首页</a>
+	    <a href="${base}/member/order/list">订单</a>
+	    <a href="${base}/member">我的</a>
+	    <a href="${base}/cart/list">
+	        <div class="cart">
+	            <span></span>
+	            <em id="cartQuantity">0</em>
+	            <div>&yen;38起送</div>
+	        </div>
+	    </a>
+	</footer>
+	<!-- header end -->
+	<script>
+        $(".category li").click(function(){
+            $(this).addClass("cur").siblings().removeAttr("class");
+            var cid = $(this).attr("val");
+            getProductCategoryHtml(cid);
+        });
+        
+        function showLoading() {
+            $(".ccbg").css("position", "relative");
+            var html = '<div id="loading" style="width:100%;height:100%;background:#fff;filter:alpha(opacity=50);opacity:0.5;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:50%;left:60%;margin-left:-16px;z-index:1000;"><img src="${base}/templates/${config.theme}/mobile/static/images/loading.gif" /></div></div>';
+            $(".ccbg").append(html);
+        }
+        
+        function getProductCategoryHtml(productCategoryId){
+            showLoading();
+          //ajax
+        	$.ax("${base}/product/list/"+productCategoryId,
+                    null,'GET',null,'text',
+                    function(data){
+                    	 $(".ccbg").css("position", "none");
+                         $("#loading").remove();
+                         $('.ccbg').html(data);
+                    },
+                    function(data){
+                    	console.dir(data);
+                });
+        }
+       
+       
+        //更新购物车数量
+        function updateQuantity(productId,quantity){
+            $.ax("${base}/cart_item/update",
+                     {"productId":productId,"quantity":quantity,"type":1}, 'POST',null,'json',
+                     function(data){
+                         if(data.productQuantity<=0){
+                             $("#reduceProduct_"+productId).css("display","none");
+                             $("#productQuantity_"+productId).html("");
+                             $("#cartQuantity").html(data.quantity);
+                         }else{
+                             $("#productQuantity_"+productId).html(data.productQuantity);
+                             $("#cartQuantity").html(data.quantity);
+                         }
+                     },
+                     function(data){
+                 });
+        }
+        
+        function addProduct(productId){
+            $("#reduceProduct_"+productId).css("display","");
+            updateQuantity(productId,1);
+        }
+        
+        function reduceProduct(productId){
+            updateQuantity(productId,-1);
+        }
+        
+        
+        //热门更新购物车数量
+        function hotUpdateQuantity(productId,quantity){
+            $.ax("${base}/cart_item/update",
+                     {"productId":productId,"quantity":quantity,"type":1}, 'POST',null,'json',
+                     function(data){
+                         if(data.productQuantity<=0){
+                             $("#hotReduceProduct_"+productId).css("display","none");
+                             $("#hotProductQuantity_"+productId).html("");
+                             $("#cartQuantity").html(data.quantity);
+                         }else{
+                             $("#hotProductQuantity_"+productId).html(data.productQuantity);
+                             $("#cartQuantity").html(data.quantity);
+                         }
+                     },
+                     function(data){
+                 });
+        }
+        
+        function hotAddProduct(productId){
+            $("#hotReduceProduct_"+productId).css("display","");
+            hotUpdateQuantity(productId,1);
+        }
+        
+        function hotReduceProduct(productId){
+            hotUpdateQuantity(productId,-1);
+        }
+        
+	
+	$(function(){
+		getProductCategoryHtml(1);
+		$(".category li").eq(0).addClass("cur").siblings().removeAttr("class");
+		$(".meunTab li").click(function(){
+			$(this).addClass("cur").siblings().removeAttr("class");
+			$(".index_warp").eq($(this).index()).show().siblings(".index_warp").hide();
+		})
+		loadCart();
+	})
+
+      function fenlei(cid){
+          $(".meunTab li").eq(1).click();
+          $(".category li").eq(cid).click();
+      }
+
+	function loadCart(){
+		//ajax
+		$.ax("${base}/cart/view",null,'GET',null,'json',
+	            function(data){
+					$("#cartQuantity").text(data.quantity);
+	            },
+	            function(data){
+	        });
+		
+	}	
+	</script>
+</body>
+</html>
+			
+	
+	

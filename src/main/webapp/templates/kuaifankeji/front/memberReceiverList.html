@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>收货地址</title>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/comm.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/global.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/information.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/infolist.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/member.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/order-list.css">
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+</head>
+<body>
+<!-- header start -->
+[#include "templates/${config.theme}/front/header.html"]
+<!-- header end -->
+<div class="f-cb g-body">
+	<!-- menu start -->
+	[#include "templates/${config.theme}/front/memberHelpTop.html"]
+	<!-- menu end -->
+	<div class="block clearfix">
+		<div class="g-side">
+			<!-- menu start -->
+			[#include "templates/${config.theme}/front/memberMenu.html"]
+			<!-- menu end -->
+		</div>
+		<div class="g-ol">
+			<h2 class="m-title">收货人信息</h2>
+			<div class="g-container">
+				<div id="J_order_list">
+					[#list receivers as receiver]
+						<form action="${base}/member/receiver/update" method="post">
+							<input type="hidden" name="id" value="${receiver.id}"/>
+							<table class="m-table NewTR" style="margin-bottom:20px;">
+								<tr>
+									<td align="right" style="width:20%">配送区域：</td>
+									<td colspan="3" align="left"> &nbsp; 
+										<select class="province" data-value="${receiver.areaId}" data-treePath="${receiver.area.treePath}">
+	                                    	<option value="">请选择城市</option>
+	                                   	</select>
+										<select class="city">
+	                         				<option value="">请选择区</option>
+	                              		</select>
+	                              		<select class="district" name="area_id">
+	                          				<option value="">请选择小区</option>
+	                                   	</select> 
+								(必填)</td>
+								</tr>
+								<tr>
+									<td align="right" style="width:20%">收货人姓名：</td>
+									<td align="left" style="width:32%"> &nbsp; <input name="consignee" type="text" class="inputBg" value="${receiver.consignee}" />(必填) </td>
+									<td align="right" style="width:16%">电话：</td>
+									<td align="left" style="width:32%"> &nbsp; <input name="phone" type="text" class="inputBg" value="${receiver.phone}" />
+									(必填)</td>
+								</tr>
+								<tr>
+									<td align="right" style="width:16%">详细地址：</td>
+									<td align="left" style="width:32%"> &nbsp; <input name="address" type="text" class="inputBg" value="${receiver.address}" />
+									(必填)</td>
+								</tr>
+								<tr>
+									<td colspan="4" align="center">                    
+									<input type="submit" name="submit" class="subBtn"  value="修改收货地址"/>
+									</td>
+								</tr>
+							</table>
+						</form>
+					[/#list]
+					<form action="${base}/member/receiver/save" method="post">
+						<table class="m-table NewTR" style="margin-bottom:20px;">
+							<tr>
+								<td align="right" style="width:20%">配送区域：</td>
+								<td colspan="3" align="left"> &nbsp; 
+									<select class="province">
+                                    	<option value="">请选择城市</option>
+                                   	</select>
+									<select class="city">
+                         				<option value="">请选择区</option>
+                              		</select>
+                              		<select class="district" name="areaId">
+                          				<option value="">请选择小区</option>
+                                   	</select> 
+							(必填)</td>
+							</tr>
+							<tr>
+								<td align="right" style="width:20%">收货人姓名：</td>
+								<td align="left" style="width:32%"> &nbsp; <input name="consignee" type="text" class="inputBg" value="" />(必填) </td>
+								<td align="right" style="width:16%">电话：</td>
+								<td align="left" style="width:32%"> &nbsp; <input name="phone" type="text" class="inputBg" value="" />
+								(必填)</td>
+							</tr>
+							<tr>
+								<td align="right" style="width:16%">详细地址：</td>
+								<td align="left" style="width:32%"> &nbsp; <input name="address" type="text" class="inputBg" value="" />
+								(必填)</td>
+							</tr>
+							<tr>
+								<td colspan="4" align="center">                    
+								<input type="submit" name="submit" class="subBtn"  value="新增收货地址"/>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer start -->
+[#include "templates/${config.theme}/front/footer.html"]
+<!-- footer end -->
+</body>
+</html>
+ <script type="text/javascript">
+ $(document).ready(function() {
+	 
+     $('form').submit(function() {
+        var consignee=$(this).find("input[name='consignee']").val();
+        if(consignee == ''){
+            alert("请输入收货人姓名!")
+            return false;
+        }
+        var district=$(this).find(".district").val();
+        if(district == ''){
+            alert("请选择收货地址!")
+            return false;
+        }
+        var phone=$(this).find("input[name='phone']").val();
+        if(phone == ''){
+            alert("请输入电话!")
+            return false;
+        }
+    }); 
+ });
+ </script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加收货地址</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/common.js"></script>
+<style>
+.text_select{
+    height: 30px;
+    background-color: transparent;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+
+}
+.addAddress .btn_red{margin-top:15px;width:100%;height:40px;background-color:#fff;border:1px solid #6BC30D;font-size:1.6em;color:#6bc30d;border-radius:5px;}
+</style>
+</head>
+<body class="bgc_ecedf1">
+	<header class="bar">
+		<div class="goBack" onclick="history.go(-1)"></div>
+		<h2>添加地址</h2>
+		<a href="${base}/"></a>
+	</header>
+	<form action="${base}/member/receiver/save" method="post" id="inputForm">
+		<div class="addAddress pwrap">
+			<ul>
+				<li><label>联系人</label><input type="text" value="" id="consignee" name="consignee" placeholder="收货人姓名" /></li>
+				<li><label>手机号</label><input type="tel" value="" id="phone" name="phone" placeholder="手机号"/></li>
+				<li><label>省份</label>
+                    <select class="text_select province">
+                    	<option value="">请选择</option>
+					</select>
+				</li>
+                <li>
+                	<label>城市</label>
+                   	<select class="text_select city">
+						<option value="">请选择</option>
+  					</select>
+                </li>
+                <li>
+                	<label>区县</label>
+                    <select name="areaId" class="text_select district">
+                        <option value="">请选择</option>
+  					</select>
+                </li>
+				<li>
+					<label>所在地区</label>
+                    <input type="text" value="" placeholder="详细收货地址" name="address"/>
+                </li>
+                <li>
+					<p>地址填写请尽量详细，如**楼**室</p>
+                </li>
+			</ul>
+            <input type="submit" class="btn_red" value="确认" autocomplete="off" />
+		</div>
+		<div class="layerMark"></div>
+	</form>
+</body>
+</html>
+ <script type="text/javascript">
+ $(document).ready(function() {
+     
+     $('#inputForm').submit(function() {
+        var consignee=$('#consignee').val();
+        if(consignee == ''){
+            alert("请输入收货人姓名!")
+            return false;
+        }
+        var district=$('#district').val();
+        if(district == ''){
+            alert("请选择收货地址!")
+            return false;
+        }
+        var phone=$('#phone').val();
+        if(phone == ''){
+            alert("请输入电话!")
+            return false;
+        }
+    }); 
+ });
+ </script>

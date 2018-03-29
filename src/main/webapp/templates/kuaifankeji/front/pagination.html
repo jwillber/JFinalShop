@@ -1,0 +1,16 @@
+<span class="page_total fwr">总计${page.totalRow}个记录</span>
+[#if totalPages > 1]
+	[#if hasPrevious]
+		<a class="page_pre" href="">&lt;</a>
+	[/#if]
+	[#list segment as segmentPageNumber]
+		[#if segmentPageNumber != pageNumber]
+			<a href="">${segmentPageNumber}</a>
+		[#else]
+			<span class="page_select">${segmentPageNumber}</span>
+		[/#if]
+	[/#list]
+	[#if hasNext]
+		<a class="page_next" href="">&gt;</a>
+	[/#if]
+[/#if]

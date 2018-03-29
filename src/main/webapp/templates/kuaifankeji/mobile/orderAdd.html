@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>订单结算</title>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/layout.min.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/common.min.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+</head>
+<body>
+<header id="header" class="header clearfix">
+    <div class="head_left fl"><a href="javascript:history.back(-1);"><span class="h_back"></span></a></div>
+    <span class="headtit">订单结算</span>
+    <div class="head_right fr"><a href="${base}/"><span class="h_home"></span></a></div>
+</header>
+<div style="line-height:44px; height:44px; width:100%"></div>
+<div class="pwrap">
+<form action="${base}/order/save" method="post" id="inputForm">
+    <input type="hidden" name="consignee" value="${defaultReceiver.consignee}"/>
+    <input type="hidden" name="address" value="${defaultReceiver.address}"/>
+    <input type="hidden" name="areaName" value="${defaultReceiver.areaName}"/>
+    <input type="hidden" name="phone" value="${defaultReceiver.phone}"/>
+    <input type="hidden" name="zipCode" value="${defaultReceiver.zipCode}"/>
+    <input type="hidden" name="areaId" value="${defaultReceiver.areaId}"/>
+    <ul class="oldAddress">
+         <li>
+             <p><em>${defaultReceiver.phone}</em>${defaultReceiver.consignee}</p>
+             <p>${defaultReceiver.areaName}${defaultReceiver.address}</p>
+             <p>
+                <a href="${base}/receiver/list">选择其他地址</a>
+             </p>
+         </li>
+    </ul>
+    <ul class="oldAddress" style="margin-bottom: 10px">
+        <li>
+            <p>配送方式</p>
+            <p><input name="shippingMethod" type="radio" value="self" id="self" checked /><label for="self">门店自提 (￥0.00)</label></p>
+            <p><input name="shippingMethod" type="radio" value="deliver" id="deliver" /><label for="deliver">门店配送-满38免运费 (￥15.00)</label></p>
+        </li>
+    </ul>
+    <div class="cartdiv">
+    [#list currentCart.cartItems as cartItem]
+        <div class="cartlist clearfix">
+                <div class="space10"></div>
+                <div class="cartlistinner clearfix"> 
+                <a href="${base}${cartItem.product.path}" class="cart_orderlist_i">
+                    <img salt="${cartItem.product.name}" src="${cartItem.product.image}" width="80" height="101"> 
+                </a>
+                <div class="cart_orderlist_info"> 
+                    <a href="goods.php?id=632">
+                        <p class="cart_g_name">${cartItem.product.name}</p>
+                        <p class="cart_b_name"></p>
+                        <p class="fontred">${cartItem.product.price}</p>
+                        <p class="space5"></p>
+                    </a>
+                </div>
+                <a class="cart_orderlist_p" style="display:block"> 
+                    <span class="c_price" id="subtotal_${product.id}"> ￥${cartItem.subtotal}</span>
+                </a> 
+            </div>
+        </div>
+     [/#list]
+     <div class="orderaction clearfix"> 
+             <div class="fl"></div>      
+             <span id="order-integral"></span><br>
+            <span style="color: red;text-align: center"></span><br>
+         <p class="fr"><span class="c_t_price" id="cart_amount_desc">￥${currentCart.totalPrice}</span></p>
+             <div class="clear"></div>
+     </div>
+  </div>
+  
+    <div class="bottomdiv clearfix">
+	     <div class="inner clearfix">
+	        <a href="javascript:;" class="fr btn_sure" id="btnOrder">下订单</a>
+	     </div>
+     </div>
+</form>
+</div>
+</body>
+</html>
+ <script type="text/javascript">
+ $(document).ready(function() {
+     
+     $("#btnOrder").on("click",function(){
+         $('#inputForm').submit();
+     });
+ });
+ </script>

@@ -1,0 +1,19 @@
+[#list page.list as product]
+<li>
+	<a href="${base}${product.path}">
+		<img src="${product.image}" onclick="" width="80" height="80" alt="">
+	</a>
+	<div class="promsg">
+		<h2><a href="${base}${product.path}">${product.name}</a></h2>
+		<div><span></span></div>
+		<p><a href="${base}${product.path}">${product.specifications}</a></p>
+		<span>￥${product.price}</span>
+		<em>￥${product.market_price}</em>
+	</div>
+	<div class="pronum">
+		<a id="reduceProduct_${product.id}" onClick="reduceProduct('${product.id}');" style="display: none"></a>
+		<span id="productQuantity_${product.id}" class="count"></span>
+		<a id="addProduct_${product.id}" onClick="addProduct('${product.id}');"></a>
+	</div>
+</li>
+[/#list]

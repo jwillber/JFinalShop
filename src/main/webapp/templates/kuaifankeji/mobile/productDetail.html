@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品详情</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+</head>
+<header class="bar">
+	<div class="goBack" onClick="location.href='${base}/view/diancai'"></div>
+	<p>
+		<a class="cur" href="javascript:void(0)" onClick="getProductBasic()" id="getProductBasic">商品</a>
+		<a href="javascript:void(0)" onClick="getIntroduction()" id="getIntroduction">详情</a>
+	</p>
+	<div class="head_meun"><a href="${base}/view/help"></a></div>
+</header>
+<body class="bgc_ecedf1">
+	<div id="productBasic" class="pwrap" style="padding-bottom:51px;">
+		<div class="pro_slide" id="scroll_img">
+			<ul>
+				<li><img src="${product.image}" /></li>
+			</ul>
+			<ol id='scroll_num'>
+				<li class="cur"></li>
+			</ol>
+		</div>
+		<div class="pro_price pd10">
+			<span>&yen;${product.price}</span>
+			<var>促销价</var>
+			<em>市场价<em>￥${product.market_price}</em></em>
+		</div>
+		<div class="pro_support pd10">
+			<p><var>服务支持：</var>24小时无条件退换货、1小时送达/半日达</p>
+			<p><em>送</em>满38元，门店免费配送到家</p>
+		</div>
+		<div class="pro_parameter">
+			<h2>产品参数</h2>
+			<ul>
+				<li><label>产地</label><span>${product.production}</span></li>
+                <li><label>特点</label><span>${product.memo}</span></li>
+                <li><label>规格</label><span>${product.specifications}</span></li>
+			</ul>
+		</div>
+		<div class="v_comment pro_comment">
+ 				<div><a href="${base}/view/diancai">全部商品</a><a href="${base}/">返回首页</a></div>
+		</div>
+		<div></div>
+	</div>
+	<div id="introduction" class="pwrap" style="padding-bottom: 51px; display: none;">
+		${product.introduction}
+	</div>
+	<footer>
+		<div class="goods_num">商品数量：
+			<a id="reduceProduct_${product.id}" onClick="reduceProduct('${product.id}');" style="display: none"></a>
+			<span id="productQuantity_${product.id}" class="count">0</span>
+			<a id="addProduct_${product.id}" onClick="addProduct('${product.id}');"></a>
+		</div>
+		<div class="cart" onClick="location.href='${base}/cart/list'">
+			<span></span>
+			<em id="cartQuantity">0</em>
+			<div>¥38起送</div>
+		</div>
+	</footer>
+	<script type="text/javascript">
+		function getIntroduction(){
+			$("#introduction").css("display","block");
+			$("#productBasic").css("display","none");
+			$("#getProductBasic").removeClass("cur");
+			$("#getIntroduction").addClass("cur");
+		}
+		
+		function getProductBasic(){
+			$("#introduction").css("display","none");
+            $("#productBasic").css("display","block");
+            $("#getProductBasic").addClass("cur");
+            $("#getIntroduction").removeClass("cur");
+		}
+		
+		
+	       //更新购物车数量
+        function updateQuantity(productId,quantity){
+            $.ax("${base}/cart_item/update",
+                     {"productId":productId,"quantity":quantity,"type":1}, 'POST',null,'json',
+                     function(data){
+                         if(data.productQuantity<=0){
+                             $("#reduceProduct_"+productId).css("display","none");
+                             $("#productQuantity_"+productId).html("0");
+                             $("#cartQuantity").html(data.quantity);
+                         }else{
+                             $("#productQuantity_"+productId).html(data.productQuantity);
+                             $("#cartQuantity").html(data.quantity);
+                         }
+                     },
+                     function(data){
+                 });
+        }
+        
+        function addProduct(productId){
+            $("#reduceProduct_"+productId).css("display","");
+            updateQuantity(productId,1);
+        }
+        
+        function reduceProduct(productId){
+            updateQuantity(productId,-1);
+        }
+	
+	</script>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+    loadCart();
+})
+
+function loadCart(){
+    //ajax
+    $.ax("${base}/cart/view",null,'GET',null,'json',
+            function(data){
+                $("#cartQuantity").text(data.quantity);
+            },
+            function(data){
+        });
+    
+}   
+
+</script>

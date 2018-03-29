@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>编辑收货地址</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm2.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/cart_index.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/checkout_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+<style>
+	.shop_list {margin-bottom:20px;}
+</style>
+</head>
+<body>
+<!-- order_header start -->
+[#include "templates/${config.theme}/front/orderHeader.html"]
+<!-- order_header end -->
+<div class="wrap">
+	<div class="clearfix"><div class="order_map order_map_step2 fr"></div></div>
+	<div class="information_bar hlight_main hidden" id="J_comm_ad"></div>
+	<div class="shop_list" id="J_cart_list">
+		<div class="cart_time_tips clearfix J_countDown_normal">
+			<div class="fl f14"><span class="hlight_main bold f16"></span></div>
+            <div class="fl pop_wh_tips">
+                <span class="popup_box"><em class="pop_arrow"></em></span>
+            </div>
+            <div class="cart_confidence">
+                <div class="c_item fl"><i class="ico1"></i>全程冷链</div>
+                <div class="c_item fl"><i class="ico2"></i>基地直供</div>
+                <div class="c_item fl"><i class="ico3"></i>安全保障</div>
+            </div>
+   		</div>
+   		[#list receivers as receiver]
+			<form action="${base}/receiver/update" method="post">
+				<input type="hidden" name="receiver.id" value="${receiver.id}"/>
+				<div class="mod_box">
+	            	<div class="mod_bd2 co_address_box">
+	                	<div id="J_address_editWindow" class="co_userinfo_edit hidden" style="display: block;">
+	                    	<div class="co_new_address">
+	                        	<ul class="co_addr_edit_form clearfix">
+		                            <li class="form_item">
+		                                <span class="title">收货人姓名：</span>
+		                                <div class="input_area"><input name="consignee" type="text" class="inp_txt co_wrong_input" value="${receiver.consignee}"/>(必填)</div>
+		                            </li>
+	                               	<li class="form_item">
+										<span class="title">收货地址：</span>
+	                                	<div class="input_area">
+	                                    	<div class="co_dropdown fl">
+	                                        	<select class="co_dropdown province" data-value="${receiver.areaId}" data-treePath="${receiver.area.treePath}">
+	                                            	<option value="">请选择</option>
+	                                           	</select>
+	                                       	</div>
+	                                       	<div class="co_dropdown fl"> 
+	                                   			<select class="co_dropdown city">
+	                                  				<option value="">请选择</option>
+	                                       		</select> 
+	                                       	</div>
+	                                       	<div class="co_dropdown fl"> 
+	                                           	<select name="areaId" class="co_dropdown district">
+		                                 			<option value="">请选择</option>
+	                                           	</select>
+	                                       	</div>
+	                                       	(必填)<br>
+	                                       	<div class="co_detail_addr">
+	                                           	<span class="shopping_tips">
+	                                            	<label for="address" class="inp_txt_def gray fl" style="opacity: 1;"></label>
+	                                            	<input type="text" name="address" class="inp_txt" value="${receiver.address}" size="50"/>
+	                                            </span>
+	                                       	</div>
+	                                   	</div>
+	                               	</li>
+	                                <li class="form_item">
+	                                    <span class="title">电话：</span>
+	                                    <div class="input_area shopping_tips J_phone_container">
+	                                        <input type="text" name="phone" value="${receiver.phone}"  class="inp_txt co_wrong_input" />
+	                                    </div>
+	                                </li>
+	                       		</ul>
+	                       	</div>
+							<div class="co_addr_btnbox clearfix">
+								<div class="co_addr_savebtn fl">
+									<input type="submit" class="button_bg_6 button_bg" value="配送至这个地址" /> 
+								</div>
+	                       	</div>
+	                   	</div>
+	               	</div>
+	           	</div>
+	       	</form> 
+       	[/#list]
+       	<form action="${base}/receiver/save" method="post">
+			<div class="mod_box">
+            	<div class="mod_bd2 co_address_box">
+                	<div id="J_address_editWindow" class="co_userinfo_edit hidden" style="display: block;">
+                    	<div class="co_new_address">
+                        	<ul class="co_addr_edit_form clearfix">
+	                            <li class="form_item">
+	                                <span class="title">收货人姓名：</span>
+	                                <div class="input_area"><input name="consignee" type="text" class="inp_txt co_wrong_input" value=""/>(必填)</div>
+	                            </li>
+                               	<li class="form_item">
+									<span class="title">收货地址：</span>
+                                	<div class="input_area">
+                                    	<div class="co_dropdown fl">
+                                        	<select class="co_dropdown province" data-child="city">
+                                            	<option value="">请选择</option>
+                                           	</select>
+                                       	</div>
+                                       	<div class="co_dropdown fl"> 
+                                   			<select class="co_dropdown city" data-child="district">
+                                  				<option value="">请选择</option>
+                                       		</select> 
+                                       	</div>
+                                       	<div class="co_dropdown fl">  
+                                           	<select name="areaId" class="co_dropdown district">
+	                                 			<option value="">请选择</option>
+                                           	</select>
+                                       	</div>
+                                       	(必填)<br>
+                                       	<div class="co_detail_addr">
+                                           	<span class="shopping_tips">
+                                            	<label for="address" class="inp_txt_def gray fl" style="opacity: 1;"></label>
+                                            	<input type="text" name="address" class="inp_txt" value="" size="50"/>
+                                            </span>
+                                       	</div>
+                                   	</div>
+                               	</li>
+                                <li class="form_item">
+                                    <span class="title">电话：</span>
+                                    <div class="input_area shopping_tips J_phone_container">
+                                        <input type="text" name="phone" value=""  class="inp_txt co_wrong_input" />
+                                    </div>
+                                </li>
+                       		</ul>
+                       	</div>
+						<div class="co_addr_btnbox clearfix">
+							<div class="co_addr_savebtn fl">
+								<input type="submit" class="button_bg_6 button_bg" value="配送至这个地址" /> 
+							</div>
+                       	</div>
+                   	</div>
+               	</div>
+           	</div>
+       	</form> 
+   	</div>
+</div>
+<div class="blank5"></div>
+<div style="clear:both; margin-bottom:20px;"></div>
+<div id="footer">
+	<!-- footer_site_nav start -->
+	[#include "templates/${config.theme}/front/footerSiteNav.html"]
+	<!-- footer_site_nav end -->
+  	<!-- footer_site_info start -->
+	[#include "templates/${config.theme}/front/footerSiteInfo.html"]
+	<!-- footer_site_info end -->
+</div>
+</body>
+</html>
+ <script type="text/javascript">
+ $(document).ready(function() {
+	 
+     $('form').submit(function() {
+        var consignee=$(this).find("input[name='consignee']").val();
+        if(consignee == ''){
+            alert("请输入收货人姓名!")
+            return false;
+        }
+        var district=$(this).find(".district").val();
+        if(district == ''){
+            alert("请选择收货地址!")
+            return false;
+        }
+        var phone=$(this).find("input[name='phone']").val();
+        if(phone == ''){
+            alert("请输入电话!")
+            return false;
+        }
+    }); 
+ });
+ </script>

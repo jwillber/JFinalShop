@@ -1,0 +1,91 @@
+@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, button, textarea, p, th, td {
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑
+}
+h1, h2, h3, h4, h5, h6, input, select, textarea {
+    font-size: 100%;
+}
+table {
+    border-collapse: collapse;
+}
+ul, ol {
+    list-style: none outside none;
+}
+em, i, address {
+    font-style: normal;
+}
+fieldset, img {
+    border: 0 none;
+}
+img {
+    vertical-align: bottom;
+    margin: 0;
+    padding: 0;
+}
+.clear {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.top_head{height: 24px;line-height: 24px;background: #e8e8e8;font-size: 12px; color: #6c6c6c}
+
+.top_head_content {
+    height: 24px;
+    margin: 0 auto;
+    position: relative;
+    width: 1000px;
+}
+.top_head_content ul.nav_sub {
+    font-size: 12px;
+    padding-top: 6px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index:8;
+}
+.top_head_content ul.nav_sub li {
+    border-left: 1px solid #6C6C6C;
+    float: left;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+.top_head_content ul.nav_sub li.noline {
+    border: medium none;
+    padding: 0;
+}
+.header_nav{background: url(../images/header_nav_bg.png) repeat-x;width: 100%;height: 59px}
+.header_content{width: 1000px;margin: 0 auto;position: relative;}
+.vip_logo{background: url(../images/head_base.png) no-repeat left -180px; width: 109px; height: 56px;display: block;}
+.header_content ul{position: absolute;right:0;top: 
+    0}
+.header_content ul li {float: left;margin-left: 51px}
+.nav1,.nav2,.nav3,.nav4,.nav5 { background: url(../images/head_base.png) no-repeat;width: 66px;height: 58px;display: block;}
+.nav1{background-position:left top}
+.nav2{background-position:-67px top}
+.nav3{background-position:-134px top}
+.nav4{background-position:-201px top}
+.nav5{background-position:-268px top}
+.nav1:hover{background-position:left -60px}
+.nav2:hover{background-position:-67px -60px}
+.nav3:hover{background-position:-134px -60px}
+.nav4:hover{background-position:-201px -60px}
+.nav5:hover{background-position:-268px -60px}
+.select .nav1{background-position:left -120px}
+.select .nav2{background-position:-67px -120px}
+.select .nav3{background-position:-134px -120px}
+.select .nav4{background-position:-201px -120px}
+.select .nav5{background-position:-268px -120px}
+#J_top {position: fixed;left: 50%;margin-left: 510px;bottom:150px;}
+#J_top {background: url(../images/j_top.png) no-repeat;width: 30px;height: 100px;cursor: pointer;}
+#J_top:hover {background-position: -31px top;}
+
+.wrapper{ background: #f8f8f8;width: 100%;}
+.wrapper_con{width:100%;background:#f9f8f9  url(../images/yx_con_head.png) no-repeat center top; }
+.relative {position: relative;}

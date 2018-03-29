@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>系统设置</title>
+[#include "/WEB-INF/admin/include/common.html"]
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>系统设置</h5>
+            </div>
+           <form id="inputForm" action="update" method="post">
+               <div class="tabs-container">
+                   <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1">基本设置</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-2">显示设置</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-3">短信设置</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body form-horizontal">
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">网站名称：</label>
+			                        <div class="col-sm-3">
+			                            <input placeholder="名称" class="form-control" type="text" name="config.siteName" value="${config.siteName}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">网站网址：</label>
+			                        <div class="col-sm-3">
+			                            <input placeholder="名称" class="form-control" type="text" name="config.siteUrl" value="${config.siteUrl}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">logo：</label>
+			                        <div class="col-sm-3">
+			                            <input type="text" class="form-control" name="logo" value="${config.logo}"/>
+			                        </div>
+			                        <div class="col-sm-3">
+			                        	<a href="javascript:;" class="btn btn-primary filePicker">选择文件</a>
+										<a href="${config.logo}" target="_blank">查看</a>
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">标题：</label>
+			                        <div class="col-sm-3">
+			                            <input placeholder="标题" class="form-control" type="text" name="config.title" value="${config.title}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">关键词：</label>
+			                        <div class="col-sm-3">
+			                            <input placeholder="关键词" class="form-control" type="text" name="config.keywords" value="${config.keywords}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">描述：</label>
+			                        <div class="col-sm-3">
+			                            <input placeholder="描述" class="form-control" type="text" name="config.description" value="${config.description}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">主题：</label>
+			                        <div class="col-sm-3">
+			                            <select class="form-control" name="config.theme">
+			                                [#list themes as theme]
+											 	<option value="${theme}" [#if theme==config.theme]selected[/#if]>${theme}</option> 
+											[/#list]
+			                            </select>
+			                        </div>
+			                    </div>
+		                    </div>
+	                    </div>
+	                    <div id="tab-2" class="tab-pane">
+                            <div class="panel-body form-horizontal">
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">是否开启水印：</label>
+			                        <div class="col-sm-3">
+			                        	<div class="radio" id="isWatermarkEnabled">
+			                               <label class="m-r"><input type="checkbox" name="config.isWatermarkEnabled" value="true" [#if config.isWatermarkEnabled]checked[/#if]/>&nbsp;</label>
+			                            </div>
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">水印透明度：</label>
+			                        <div class="col-sm-3">
+			                            <input placeholder="" class="form-control" type="text" name="config.watermarkAlpha" value="${config.watermarkAlpha}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">水印图片：</label>
+			                        <div class="col-sm-3">
+			                            <input placeholder="" class="form-control" type="text" name="config.watermarkImage" value="${config.watermarkImage}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+			                        <label class="col-sm-3 control-label">水印位置：</label>
+			                        <div class="col-sm-3">
+			                            <select class="form-control" name="config.watermarkPosition">
+			                                [#list configWatermarkPositionNames.keySet() as key]
+											 	<option value="${key}" [#if key==config.watermarkPosition]selected[/#if]>${configWatermarkPositionNames.get(key)}</option>
+											[/#list]
+			                            </select>
+			                        </div>
+			                    </div>
+								<div class="form-group">
+			                        <label class="col-sm-3 control-label">文件上传路径：</label>
+			                        <div class="col-sm-3">
+			                           <input placeholder="文件上传路径" class="form-control" type="text" name="config.fileUploadPath" value="${config.fileUploadPath}">
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+                                    <label class="col-sm-3 control-label">商品图片(大)：</label>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">宽度:</span>
+                                                    <input placeholder="单位: 像素" class="form-control" type="text" name="config.largeProductImageWidth" value="${config.largeProductImageWidth}">
+                                                </div>
+                                            </div>  
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">高度:</span>
+                                                    <input placeholder="单位: 像素" class="form-control" type="text" name="config.largeProductImageHeight" value="${config.largeProductImageHeight}">
+                                                </div>                         
+                                            </div>  
+                                        </div>             
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">商品图片(中)：</label>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">宽度:</span>
+                                                    <input placeholder="单位: 像素" class="form-control" type="text" name="config.mediumProductImageWidth" value="${config.mediumProductImageWidth}">
+                                                </div>
+                                            </div>  
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">高度:</span>
+                                                    <input placeholder="单位: 像素" class="form-control" type="text" name="config.mediumProductImageWidth" value="${config.mediumProductImageWidth}">
+                                                </div>                         
+                                            </div>  
+                                        </div>          
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">商品图片(缩略)：</label>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">宽度:</span>
+                                                    <input placeholder="单位: 像素" class="form-control" type="text" name="config.thumbnailProductImageWidth" value="${config.thumbnailProductImageWidth}">
+                                                </div>
+                                            </div>  
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">高度:</span>
+                                                    <input placeholder="单位: 像素" class="form-control" type="text" name="config.thumbnailProductImageWidth" value="${config.thumbnailProductImageWidth}">    
+                                                </div>                         
+                                            </div>  
+                                        </div>          
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">默认商品图片(大)：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" name="config.defaultLargeProductImage" value="${config.defaultLargeProductImage}"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a href="javascript:;" class="btn btn-primary filePicker">选择文件</a>
+                                        <a href="${config.defaultLargeProductImage}" target="_blank">查看</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">默认商品图片(中)：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" name="config.defaultMediumProductImage" value="${config.defaultMediumProductImage}"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a href="javascript:;" class="btn btn-primary filePicker">选择文件</a>
+                                        <a href="${config.defaultMediumProductImage}" target="_blank">查看</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">默认商品图片(缩略)：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" name="config.defaultThumbnailProductImage" value="${config.defaultThumbnailProductImage}"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a href="javascript:;" class="btn btn-primary filePicker">选择文件</a>
+                                        <a href="${config.defaultThumbnailProductImage}" target="_blank">查看</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-pane">
+                            <div class="panel-body form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">短信accessKey：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="短信accessKey" class="form-control" type="text" name="config.smsAccessKey" value="${config.smsAccessKey}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">短信accessSecret：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="短信accessSecret" class="form-control" type="text" name="config.smsAccessSecret" value="${config.smsAccessSecret}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">短信签名：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="短信签名" class="form-control" type="text" name="config.smsSignName" value="${config.smsSignName}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">短信Endpoint：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="短信Endpoint" class="form-control" type="text" name="config.smsEndpoint" value="${config.smsEndpoint}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">短信主题名称：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="短信主题名称" class="form-control" type="text" name="config.smsTopicName" value="${config.smsTopicName}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">&nbsp;</label>
+                                    <div class="col-sm-3">
+                                       <a href="javascript:;" id="testSms">[短信测试]</a>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="display: none;">
+                                    <label class="col-sm-3 control-label">接收人手机号码：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="接收人手机号码" class="form-control ignore" type="text" id="toMobile" name="toMobile" value="">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button type="button" class="btn btn-w-m btn-primary" id="sendSms">发送短信</button>
+                                       <span id="testSmsStatus">&nbsp;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+	                </div>
+	            </div>
+	            <div class="modal-footer col-sm-3 col-sm-offset-2">
+	                <button type="submit" class="btn btn-w-m btn-primary">确定</button>
+	            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+$().ready(function() {
+
+	var $inputForm = $("#inputForm");
+    var $testSmtpStatus = $("#testSmtpStatus");
+    var $testSms = $("#testSms");
+    var $toMobile = $("#toMobile");
+    var $sendSms = $("#sendSms");
+    var $testSmsStatus = $("#testSmsStatus");	
+	
+   // 短信测试
+    $testSms.click(function() {
+        $testSms.closest(".form-group").hide();
+        $toMobile.closest(".form-group").show();
+    });
+    
+    // 发送短信
+    $sendSms.click(function() {
+        $toMobile.removeClass("ignore");
+        var validator = $inputForm.validate();
+        var isValid = validator.element($toMobile);
+        $toMobile.addClass("ignore");
+        $.ajax({
+            url: "testSms",
+            type: "POST",
+            data: {toMobile: $toMobile.val()},
+            dataType: "json",
+            cache: false,
+            beforeSend: function() {
+                if (!isValid) {
+                    return false;
+                }
+                $testSmsStatus.html('<span class="loadingIcon">&nbsp;<\/span>正在发送测试短信，请稍后...');
+                $sendSms.prop("disabled", true);
+            },
+            success: function(message) {
+                $testSmsStatus.empty();
+                $sendSms.prop("disabled", false);
+                alert(message.content);
+            }
+        });
+    });
+    
+    // 表单验证
+    $inputForm.validate({
+        rules: {
+            siteName: "required",
+            siteUrl: {
+                required: true,
+                pattern: /^(http:\/\/|https:\/\/).*$/i
+            },
+            logo: {
+                required: true,
+                pattern: /^(http:\/\/|https:\/\/|\/).*$/i
+            },
+            largeProductImageWidth: {
+                required: true,
+                integer: true,
+                min: 1
+            },
+            largeProductImageHeight: {
+                required: true,
+                integer: true,
+                min: 1
+            },
+            mediumProductImageWidth: {
+                required: true,
+                integer: true,
+                min: 1
+            },
+            mediumProductImageHeight: {
+                required: true,
+                integer: true,
+                min: 1
+            },
+            thumbnailProductImageWidth: {
+                required: true,
+                integer: true,
+                min: 1
+            },
+            thumbnailProductImageHeight: {
+                required: true,
+                integer: true,
+                min: 1
+            },
+            defaultLargeProductImage: {
+                required: true,
+                pattern: /^(http:\/\/|https:\/\/|\/).*$/i
+            },
+            defaultMediumProductImage: {
+                required: true,
+                pattern: /^(http:\/\/|https:\/\/|\/).*$/i
+            },
+            defaultThumbnailProductImage: {
+                required: true,
+                pattern: /^(http:\/\/|https:\/\/|\/).*$/i
+            },
+            watermarkAlpha: {
+                required: true,
+                digits: true,
+                max: 100
+            },
+            fileUploadPath: "required",
+            smsSignName: "required",
+            smsAccessKey: "required",
+            smsAccessSecret: "required"
+        }
+    });
+
+});
+</script>

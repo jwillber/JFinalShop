@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>登录</title>
+<link href="${base}/templates/${config.theme}/mobile/static/css/layout.min.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/mobile/static/css/common.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+<style>
+  #switch-title {float:right;}
+  #switch-title li {float:left;color:#000;border-bottom:2px solid #fff;font-size:16px;margin-right:10px;padding-bottom:5px;}
+  #switch-title li.on-hit {color:green;border-bottom:2px solid green;}
+</style>
+</head>
+<body>
+<header id="header" class="header clearfix">
+    <div class="head_left fl"><a href="javascript:history.back(-1);"><span class="h_back"></span></a></div>
+    <span class="headtit">登录</span>
+    <div class="head_right fr"><a href="${base}/"><span class="h_home"></span></a></div>
+</header>
+<div>
+	<div style="line-height:44px; height:44px; width:100%"></div>
+	<div class="space15"></div>
+    <div class="connerdiv" style="font-size:14px;color:#000000;text-align:left;padding:0px 8px;">注册后可享受红包积分等优惠
+		<ul id="switch-title">
+	        <li onclick="javascript:location.href='${base}/login';" class="on-hit">登录</li>
+	        <li onclick="javascript:location.href='${base}/register';" id="zhuce">注册</li>
+      	</ul>
+		<div style="clear:both;"></div>
+    </div>
+ 	<div class="connerdiv" id="account-div">
+    	<form id="inputForm" action="${base}/login" method="post">
+      		<dl class="connerbox">
+        		<dd><span class="form_hd">手机：</span><span class="form_td"><input type="text" id="username" name="username" value="" maxlength="50"  placeholder="请输入手机" class="text_input"></span></dd>
+        		<dd id="service-pwd" class="pwd"><span class="form_hd">密码：</span><span class="form_td"><input type="password" id="pwd" name="password" value="" maxlength="50" placeholder="请输入密码" class="text_input" /></span></dd>
+      		</dl>
+      		<dl id="tips" style="color:#da4f49; text-align:center; font-weight:bold;"></dl>
+      		<div class="space15"></div>
+      		<input name="btnLogin" type="submit" value="登录" class="btn_red" />
+      		<div class="space15"></div>
+      		<a href="${base}/password/forgot" class="forgetkey">忘记密码?</a>
+  		</form>
+    </div>
+</div>
+<div class="space10"></div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#inputForm').submit(function() {
+		if($('#username').val() == ''){
+			$('#inputForm #tips').html('请输入手机号码！');
+			return false;
+		}
+		if($('#pwd').val()==''){
+			$('#inputForm #tips').html('请输入密码！');
+			return false;
+		}
+	});
+});
+</script>
+</body>
+</html>

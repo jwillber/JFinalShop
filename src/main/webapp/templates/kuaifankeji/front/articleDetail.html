@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文章详情</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="${base}/templates/${config.theme}/front/static/css/base_bolg.css" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+</head>
+<body>
+<!-- header start -->
+[#include "templates/${config.theme}/front/header.html"]
+<!-- header end -->
+<div class="bolg_box">
+	<div class="bolg_main">
+		<div class="bolg_nav">
+           	当前位置: <a href="${base}/">首页</a>
+   	    	[@article_category_parent_list articleCategoryId=article.articleCategory.id]
+				[#list articleCategories as category]
+	    			<code>&gt;</code><a href="${category.path}">${category.name}</a>
+	    		[/#list]
+    		[/@article_category_parent_list]
+    		<code>&gt;</code><a href="${article.articleCategory.path}">${article.articleCategory.name}</a>
+    		<code>&gt;</code>${article.name}
+   		</div>
+      	<div class="bolg_left fl">
+			<div class="vip_story box_radius box_show01">
+				<div class="til topline">${article.articleCategory.name}<span>News</span></div>
+				<p class="ban_img"><img src="${base}/templates/${config.theme}/front/static/images/news_banner.jpg"></p>
+				<div class="s_menu">
+					[@article_category_children_list articleCategoryId=article.articleCategory.parent ]
+						[#list articleCategories as category]
+					        <a href="${base}${category.path}" >${category.name}</a>
+						[/#list]
+					[/@article_category_children_list]
+				</div>
+			 </div>      
+    	</div>
+        <div class="bolg_right fr">
+			<div class="bolg_detail box_show02">
+				<div class="detail_til">
+					<h2>${article.title}</h2>
+					<span></span>
+				</div>
+				<div class="de_text J_zw_p">
+					${article.content}
+				</div>
+				<div class="de_art">
+					<div class="p_next">
+						<ul>
+						  [#if article.lastArticle??]
+							<li> 上一篇:<a href="${base}${article.path}">${article.title}</a></li>
+						  [/#if]
+						</ul>
+                    </div>
+                    <div class="fx">
+                        <span class="J_vip_share bdsharebuttonbox" id="J_blog_share"></span>
+                    </div>
+                </div>
+        	</div>
+    	</div>
+	</div>
+</div>
+<div style="clear:both; height:50px;"></div>  
+<!-- footer start -->
+[#include "templates/${config.theme}/front/footer.html"]
+<!-- footer end -->
+</body>
+</html> 

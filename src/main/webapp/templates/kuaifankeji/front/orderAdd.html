@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm2.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/cart_index.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/checkout_index.css" rel="stylesheet" type="text/css" />
+<style>
+	.shop_list {margin-bottom:20px;}
+</style>
+</head>
+<body>
+<!-- order_header start -->
+[#include "templates/${config.theme}/front/orderHeader.html"]
+<!-- order_header end -->
+<form action="${base}/order/save" method="post" id="inputForm">
+	<input type="hidden" name="consignee" value="${defaultReceiver.consignee}"/>
+	<input type="hidden" name="address" value="${defaultReceiver.address}"/>
+	<input type="hidden" name="areaName" value="${defaultReceiver.areaName}"/>
+	<input type="hidden" name="phone" value="${defaultReceiver.phone}"/>
+	<input type="hidden" name="zipCode" value="${defaultReceiver.zipCode}"/>
+	<input type="hidden" name="areaId" value="${defaultReceiver.areaId}"/>
+	<div class="wrap">
+		<div class="clearfix"><div class="order_map order_map_step2 fr"></div></div>
+        <div class="information_bar hlight_main hidden" id="J_comm_ad"></div>
+		<div class="checkout">
+			<div class="cart_time_tips clearfix J_countDown_normal">
+                <div class="fl f14 J_order_tips"></div>
+				<div class="cart_confidence">
+                    <div class="c_item fl"><i class="ico1"></i>全程冷链</div>
+                    <div class="c_item fl"><i class="ico2"></i>基地直供</div>
+                    <div class="c_item fl"><i class="ico3"></i>安全保障</div>
+                </div>
+			</div>
+           	<div class="mod_box " id="J_address" >
+				<div class="mod_hd"><strong class="mod_tit">收货人信息</strong></div>
+           		<div class="mod_bd2 co_address_box">
+                 	<div id="J_address_show" class="co_saved_addr">                                                                   
+                     	<ul class="co_saved_addr_list clearfix" id="J_address_list">
+                         	<li>
+                             	<div class="co_saved_addr_item addr_selected J_address_Section z_addr_default" >
+                                 	<div class="addr_infor deliver_name">${defaultReceiver.consignee}</div>
+									<div class="addr_infor full_addr">${defaultReceiver.address}&nbsp;&nbsp;</div> 
+									<div class="addr_infor addr_phone">${defaultReceiver.phone}&nbsp; </div>
+									<div class="saved_addr_edit J_address_Section_opt hidden">
+                               			<a class="c_pink J_address_Section_optEdit" href="${base}/receiver/edit">修改</a>
+									</div>
+                             	</div>
+                         	</li>
+                          <li>
+                          	<a class="co_create_addr J_address_create" href="${base}/receiver/edit">选择其他地址</a>
+                          </li>
+                     	</ul>
+                 	</div>
+           		</div>
+			</div>
+			<div id="paymentTabModule" class="mod_box co_payment z_co_payment_inited">
+       			<div class="mod_hd clearfix">
+            		<strong class="mod_tit fl">配送方式</strong>
+	            	<div class="co_payment_top_ad fl">
+	                	<span class="hlight_main hidden J_ad_AD14"></span>
+	                	<div class="light_gray ml20 fl J_ad_AD14_dft"> <span style="color:red;"></span></div>
+	            	</div>
+        		</div>
+         		<div id="paymentTabContainer" class="mod_bd co_payment_main clearfix z_wallet_none">
+     				<div id="J_payment_record_module" class="fl co_record_wrap z_no_record">
+	         			<div class="co_payment_record fl">
+							<div class="radio fl">
+	     						<input name="shippingMethod" id="self" type="radio" value="self"  checked class="input_radio" />
+	       						<label for="self" class="f14 bold vm" >门店自提 (￥0.00)</label>
+	       					</div>
+	       					<div style="clear:both;"></div>
+	                       	<div class="radio fl">
+	    						<input name="shippingMethod" id="delivery" type="radio" value="delivery" class="input_radio" />
+	      						<label for="delivery" class="f14 bold vm" >门店配送-满38免运费 (￥15.00)</label>
+							</div>
+	       					<div style="clear:both;"></div>
+	           			</div>
+      				</div>
+				</div>
+			</div>
+           	<div class="mod_box co_shoppinglist J_shoppingList">
+           		<div class="mod_hd"><strong class="mod_tit fl">商品列表</strong><a class="hlight_main fr J_goback" href="${base}/cart/list" >返回购物袋修改商品</a></div>
+           		<div class="mod_bd clearfix">
+       				<table id="J_cart" class="co_sl_tab">
+           				<tbody>
+	                        <tr>
+	                        	<th class="td_align_l pd_l_20 co_sl_order" colspan="2"></th>
+	                            <th width="100">单价</th>
+	                            <th width="100">数量</th>
+	                            <th width="70" class="td_align_r pr30">小计</th>
+	                        </tr>
+	                        [#list currentCart.cartItems as cartItem]
+	       						<tr>
+		                        	<td width="55"></td>
+		                            <td class="td_align_l">
+		                            	<span class="co_show_pic cursor">【图】
+		                            		<i class="co_pop_pic">
+		                            			<i class="left_arrow"></i>
+		                            			<img src="${cartItem.product.image}" width="190" height="240" alt="" />
+	                            			</i>
+		                            	</span>          
+		                            	<a href="${base}${cartItem.product.path}" target="_blank" class="f6">${cartItem.product.name}</a>
+		                            </td>
+		                            <td>￥${cartItem.subtotal}</td>
+		                            <td>${cartItem.quantity}</td>
+		                            <td class="td_align_r pr30">￥${cartItem.subtotal}</td>
+		                        </tr>
+	                        [/#list]
+           					<tr>
+                   				<td class="td_align_r td_border_n f14" colspan="5">
+                      				<div>
+										<span class="pr30"> 应付款金额: <span class="hlight_main">￥${currentCart.totalPrice}</span></span>
+									</div>                            			
+								</td>
+                   			</tr>
+	                        <tr>
+	                        	<td class="td_align_r td_border_n f14" colspan="5">
+	                                  	<button type="submit" class="co_comfirm_submit J_confirm_submit" value="提交订单" ></button> 
+	                            </td>
+	                        </tr>
+       					</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="blank"></div>
+</form>
+<div class="blank5"></div>
+<div style="clear:both; margin-bottom:20px;"></div>
+<div id="footer">
+	<!-- footer_site_nav start -->
+	[#include "templates/${config.theme}/front/footerSiteNav.html"]
+	<!-- footer_site_nav end -->
+  	<!-- footer_site_info start -->
+	[#include "templates/${config.theme}/front/footerSiteInfo.html"]
+	<!-- footer_site_info end -->
+</div>
+</body>
+</html>

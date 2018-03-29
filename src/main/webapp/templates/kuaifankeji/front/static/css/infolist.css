@@ -1,0 +1,55 @@
+/* 列表块功能 */
+.g-side {
+    border: 1px #e6e4e4 solid;
+    background: #fefeff;
+    position: static;
+    width: 165px;
+    display: block;
+    text-align: center;
+    float: left;
+}
+
+.u-ul .span-title {
+    display: block;
+    margin-bottom: 3px;
+    line-height: 2;
+    background-color: #6bc30d;
+    color: #fff;
+}
+.u-ul {
+    list-style-type: none;
+}
+.u-ul li {
+    display: block;
+    line-height: 2.3;
+}
+.u-ul li a {
+    color: #7b7b7b;
+}
+.u-ul li a:hover {
+    text-decoration: underline;
+}
+
+/*列表块功能.动态样式*/
+
+.g-side .active a:before {
+    content: "▶";
+    font-size: 18px;
+    left: -20px;
+    top: -15px;
+    position: absolute;
+}
+
+.g-side .active a {
+    color: #c85493;
+    position: relative;
+}
+.g-side .active {
+    background: none repeat scroll 0 0 #fff;
+}
+.span_title_hover {
+    background-color: #f43499 !important;
+}
+.hl_title, .hl_item {
+    display: none;
+}

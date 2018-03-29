@@ -1,0 +1,31 @@
+<script type="text/javascript">
+var staticPath = "${base}/templates/${config.theme}/front/static";
+</script>
+<div id="top_head">
+	<div class="top_head_bd user_info">
+        <div id="append_parent"></div>
+		<div class="login_before" id="J_head_log">
+			<span class="fl">
+				<a href="${base}/">首页</a> &nbsp; 
+				<a href="${base}/article/list/2">厨房</a>
+			</span>
+			[#if session.session_member??]
+ 				<span class="fl"></span>您好<a href="/user.php">${session.session_member.mobile}</a>, 欢迎您回来！ &nbsp;
+ 				<a rel="nofollow" class="btn_login hlight_main" id="J_header_lnkLogin" href="${base}/member">用户中心</a>
+ 				<a rel="nofollow" class="btn_reg" id="J_header_lnkRegister" href="${base}/logout">退出</a>
+ 			[#else]
+				<span id="J_rename_span">欢迎光临本店</span>，&nbsp;
+				<a rel="nofollow" class="btn_login" id="J_header_lnkLogin" href="${base}/login">登录</a>
+				<a rel="nofollow" class="btn_reg" id="J_header_lnkRegister" href="${base}/register">注册</a>
+ 			[/#if]
+		</div>
+	</div>
+</div>
+<div id="header">
+    <div class="fl vip_logo"><a href="${base}/" title="${setting.siteName}" class="vip_logo_img"></a></div>
+    <div class="fr help_memu">
+        <span class="h_m_1"><i class="h_m_line">40000-0000</i></span>
+        <span class="h_m_2"><a href="javascript:;" class="J_header_olService">在线客服</a></span>
+        <span class="h_m_3"><a href="${base}/article/list/4" >帮助中心</a></span>
+    </div>
+</div>

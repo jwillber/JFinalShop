@@ -1,0 +1,98 @@
+/* 重置 */
+html, body, div, form, ul, li, a, h3, p, input, select, label, span, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+/* 默认 */
+body {
+    font-size: 12px;
+    font-family: arial, "微软雅黑",sans serif;
+    color: #333;
+    background: #f3f1f4;
+    min-width:  1000px;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+input[type='text'] {
+    width: 150px;
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+}
+input, select {
+    line-height: 20px;
+    padding: 4px 6px;
+    vertical-align: middle;
+}
+select {
+    *border: none;
+}
+
+.control, .label, .must, h4 {
+    display: inline-block;
+    *display: inline;
+}
+
+/* 统一清除浮动 */
+.f-cb:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: '.';
+}
+.f-cb:after {
+    zoom: 1;
+}
+
+/* 提交按钮样式 */
+.m-btn {
+    width: 150px;
+    margin: 12px auto;
+}
+.subBtn {
+    background: url(../images/submit-before.png) no-repeat;
+    border: none;
+    width: 154px;
+    height: 30px;
+	color:#fff;
+}
+.rstBtn {
+    background: url(../images/reset-before.png) no-repeat;
+    border: none;
+    width: 154px;
+    height: 30px;
+}
+.subBtn:hover {
+    background: url(../images/submit-after.png) no-repeat;
+    cursor: pointer;
+}
+.rstBtn:hover {
+    background: url(../images/reset-after.png) no-repeat;
+    cursor: pointer;
+}
+
+/* 类 */
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
+.gray {
+    color: #666;
+}
+.must {
+    padding-left: 5px;
+}
+.ipt-long {
+    width: 530px !important;
+}

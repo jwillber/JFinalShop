@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品列表</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<script src="${base}/templates/${config.theme}/mobile/static/js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${base}/templates/${config.theme}/mobile/static/js/swipe.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${base}/templates/${config.theme}/mobile/static/js/hhSwipe.js"></script>
+<link href="${base}/templates/${config.theme}/mobile/static/css/common.min.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/mobile/static/css/index.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+<style type="text/css">
+	.hotBuy li {position:relative;}
+	.pronum {position:absolute;right:0px;bottom:1.5em;}
+	.prolist ul {margin-bottom:20px;}
+	.index_warp {display:block;}
+	.pro_sh {top:45px;}
+	.iw {top:85px;}
+</style>
+</head>
+<body>
+	<header class="header">
+		<div class="logo fl"><a href="${base}/"><img src="${base}/templates/${config.theme}/mobile/static/images/logo.png" alt="" /></a></div>
+		<div class="head_meun"><a href="${base}/view/help"></a></div>
+	</header>
+	<div class="index_warp iw">
+		<div class="pro_sh">
+			<a href="${base}/product/search">搜索</a>
+			<p><em>公告</em>购满38元，门店免费配送上门！</p>
+		</div>
+		<div class="category">
+			<ul>
+				<li id="dd1"><a href="javascript:getProductCategoryHtml(1)">叶菜类</a></li>
+				<li id="dd2"><a href="javascript:getProductCategoryHtml(2)">瓜果类</a></li>
+				<li id="dd3"><a href="javascript:getProductCategoryHtml(3)">根茎类</a></li>
+				<li id="dd4"><a href="javascript:getProductCategoryHtml(4)">菌菇类</a></li>
+				<li id="dd5"><a href="javascript:getProductCategoryHtml(5)">肉禽蛋</a></li>
+				<li id="dd6"><a href="javascript:getProductCategoryHtml(6)">海　鲜</a></li>
+				<li id="dd7"><a href="javascript:getProductCategoryHtml(7)">水　果</a></li>
+				<li id="dd8"><a href="javascript:getProductCategoryHtml(8)">豆制品</a></li>
+				<li id="dd9"><a href="javascript:getProductCategoryHtml(9)">粮　油</a></li>
+				<li id="dd10"><a href="javascript:getProductCategoryHtml(10)">干货汤品</a></li>
+				<li id="dd11"><a href="javascript:getProductCategoryHtml(11)">奶制品</a></li>				
+			</ul>
+		</div>
+		<div class="prolist">
+			<ul class="ccbg"></ul>
+		</div>
+	</div>
+	<footer>
+		<a class="cur" href="${base}/">首页</a>
+		<a href="${base}/member/order/list">订单</a>
+		<a href="${base}/member">我的</a>
+		<a href="${base}/cart/list">
+			<div class="cart">
+				<span></span>
+				<em id="cartQuantity">0</em>
+				<div>&yen;38起送</div>
+			</div>
+		</a>
+	</footer>
+		<script>
+		
+        $(".category li").click(function(){
+            $(this).addClass("cur").siblings().removeAttr("class");
+        });
+		
+        function showLoading() {
+            $(".ccbg").css("position", "relative");
+            var html = '<div id="loading" style="width:100%;height:100%;background:#fff;filter:alpha(opacity=50);opacity:0.5;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:50%;left:60%;margin-left:-16px;z-index:1000;"><img src="${base}/templates/${config.theme}/mobile/static/images/loading.gif" /></div></div>';
+            $(".ccbg").append(html);
+        }
+        
+        function getProductCategoryHtml(productCategoryId){
+        	
+            showLoading();
+          //ajax
+        	$.ax("${base}/product/list/"+productCategoryId,
+                    null,'GET',null,'text',
+                    function(data){
+                    	 $(".ccbg").css("position", "none");
+                         $("#loading").remove();
+                         $('.ccbg').html(data);
+                    },
+                    function(data){
+                    	console.dir(data);
+                });
+        }
+       
+        function addProduct(productId){
+        	$("#reduceProduct_"+productId).css("display","");
+        	updateQuantity(productId,1);
+        }
+        
+       
+     //更新购物车数量
+       function updateQuantity(productId,quantity){
+    	   $.ax("${base}/cart_item/update",
+    				{"productId":productId,"quantity":quantity,"type":1}, 'POST',null,'json',
+    				function(data){
+    					if(data.productQuantity<=0){
+    						$("#reduceProduct_"+productId).css("display","none");
+    						$("#productQuantity_"+productId).html("");
+    						$("#cartQuantity").html(data.quantity);
+    					}else{
+    						$("#productQuantity_"+productId).html(data.productQuantity);
+        					$("#cartQuantity").html(data.quantity);
+    					}
+    				},
+    				function(data){
+    	        });
+       }
+        
+        function reduceProduct(productId){
+        	updateQuantity(productId,-1);
+		}
+        
+	
+	$(function(){
+		getProductCategoryHtml(1);
+		$('#dd1').addClass("cur").siblings().removeAttr("class");
+		loadCart();
+	})
+
+      function fenlei(){
+          $(".meunTab li").eq(1).click();
+      }
+
+	function loadCart(){
+		//ajax
+		$.ax("${base}/cart/view",null,'GET',null,'json',
+	            function(data){
+					$("#cartQuantity").text(data.quantity);
+	            },
+	            function(data){
+	        });
+		
+	}	
+	</script>
+</body>
+</html>

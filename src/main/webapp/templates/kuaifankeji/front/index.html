@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+<style>
+	.add-cart {display:block;width:22px;height:22px;float:right;margin-right:25px;cursor:pointer;}
+	.add-cart img {display:block;width:22px;height:22px;}
+</style>
+<style type="text/css">
+	body{background-color:#f0fbfd;}
+	.s_bg_right{background:url("${base}/templates/${config.theme}/front/static/images/day_right.jpg") no-repeat 0 1000px;}
+	.s_bg_top{background:url("${base}/templates/${config.theme}/front/static/images/day_top.jpg") no-repeat center top;position: relative;}
+	.s_bg_bottom{background:url("${base}/templates/${config.theme}/front/static/images/day_bottom.jpg") no-repeat center bottom;}
+</style>
+</head>
+<body>
+<!-- header start -->
+[#include "templates/${config.theme}/front/header.html"]
+<!-- header end -->
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	var sublist88 = $(".header_bot").offset().top;	
+	var stickyMenu = function(){
+		
+	var scrollTop = $(window).scrollTop(); 
+	if (scrollTop > sublist88) { 
+		 $(".header_bot").addClass("index_tab_fixed");
+		} else {
+			$(".header_bot").removeClass("index_tab_fixed");
+		}   
+	};
+	
+	$(window).scroll(function() {
+		 stickyMenu();
+	});
+});
+</script>
+<div class="s_bg_top">
+	<div class="s_bg_bottom">
+		<script src="${base}/templates/${config.theme}/front/static/js/jquery.kinMaxShow-1.1.min.js" type="text/javascript"  charset="utf-8"></script>
+		<script type="text/javascript">
+		    $(function(){
+		        $("#kinMaxShow").kinMaxShow({
+					height:272,
+					button:{
+		            showIndex:false,
+							normal:{background:'url(${base}/templates/${config.theme}/front/static/images/button.png) no-repeat -14px 0',marginRight:'8px',border:'0',right:'44%',bottom:'20px'},
+							focus:{background:'url(${base}/templates/${config.theme}/front/static/images/button.png) no-repeat 0 0',border:'0'}
+						}
+				});
+			});
+		</script>
+		<style type="text/css">
+			#kinMaxShow{ display:none;}
+		</style>
+		<div id="kinMaxShow">
+			[@ad_position id = 1]
+			     [#list adPosition.ads as ad]
+				    <div><a href="${ad.url}"><img src="${ad.image}"/></a></div>
+			      [/#list]
+			[/@ad_position]
+		</div>              
+       	<div id="J_newVistor_banner" class="banner_cd banner_cd_after10"></div>
+       	<div class="wrap clearfix">
+			<div id="J_firstPart_wrap" class="lay642 J_scrollspy">
+		  		<!--<div class="a_shop_tit a_shop_today_new"></div>-->
+				<ul class="shop_onsale">
+					[@ad_position id = 2]
+							[#list adPosition.ads as ad]
+							<li data-hover="s_mod_hover" class="s_mod">
+							        <div class="s_pic J_proPic_wrap">
+							                 <a href="${ad.url}" target='_blank'><img src="${ad.image}" width='640' height='180' border='0' /></a>
+							         </div>
+							</li>
+							[/#list]
+					[/@ad_position]
+				</ul>
+			</div>
+            <div class="cl_lay330 s_bg_right" id="J_right_frame">
+				<!--<div class="a_shop_tit a_shop_rightbar"></div>-->
+				<script language="javascript">
+				$(function(){
+					$(".tabcontent li").hide();
+					$(".tabcontent #LIggtab1").show();
+					$("#tabtitle li").click(function(){
+							$("#tabtitle li").removeClass("ar_onselect");
+							$(this).addClass(" ar_onselect ");
+							$("#tabcontent .tabli").hide();
+							$("#LI"+$(this).attr("id")).show();
+					});
+				});
+				</script>
+				<div class="a_right_tab" id="J_statement_wrap">
+					<ul id="tabtitle">
+						<li id="ggtab1" class="ar_tab_item  J_statement_trigger ar_onselect" data-hover="ar_tab_hover">
+							<p class="ar_tab_title">新闻</p>
+						</li>
+						<li id="ggtab2" class="ar_tab_item J_statement_trigger" data-hover="ar_tab_hover">
+							<p class="ar_tab_title">安全保证</p>						
+						</li>
+						<li id="ggtab3" class="ar_tab_item J_statement_trigger" data-hover="ar_tab_hover">
+							<p class="ar_tab_title thelast">基地</p>						
+						</li>
+					</ul>
+					<ul id="tabcontent">
+				    	<li id="LIggtab1" class="tabli" style="width:100%">
+							<div class="ar_tab_con a_aixin365_tab J_statement_con">
+								<p class="a_at_img"><img src="${base}/templates/${config.theme}/front/static/images/aixin365.jpg" alt=""></p>
+								<ul class="a_at_list">
+									[@article_list count=9 orderBy="createDate desc" ]
+										[#list articles as article]
+					                   	<li><a href="${base}${article.path}" class="a_at_list_link" title="${article.title}">${abbreviate(article.title, 30, "...")}</a></li> 
+										[/#list]
+									[/@article_list]
+								</ul>
+							</div>
+						</li>
+						<li id="LIggtab2" class="tabli">
+							<div class="ar_tab_con a_service_tab J_statement_con">
+								<p><img src="${base}/templates/${config.theme}/front/static/images/indexsafe.png" alt=""></p>
+							</div>
+						</li>
+						<li id="LIggtab3" class="tabli">
+							<div class="ar_tab_con a_company_tab J_statement_con">
+								<p><img src="${base}/templates/${config.theme}/front/static/images/indexbase.png" alt=""></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div id="J_rigTop_slideAds" class="hidden" style="display: block; margin-top: 13px;">	
+					<div class="pic_focus J_wrap_adRotary">
+						<div class="J_wrap_adRotary_cell">
+						    <div class="J_WheelAds" >
+								<a href="" ><img src="${base}/templates/${config.theme}/front/static/images/1426041839919137508.jpg" width='310' height='234' border='0'/></a>   
+						    </div>
+				    	</div>
+					</div>
+				</div>
+				<div id="J_noticeBtAd" class="hidden" style="margin-bottom:13px">
+					<a href="#" id="J_noticeBtAd_link"></a>
+				</div>
+			</div>
+		</div>
+		<div id="J_hotsell_wrap" class="shoplast J_scrollspy">
+			<div class="a_shop_tit a_shop_newsell"></div>
+ 			<ul class="shop_lastest clearfix" id="J_wrap_pro_add">
+ 				[@product_list count=9 type=1 orderBy="sales desc" ]
+ 					[#list products as product]
+					<li class="s1_mod  J_proPic_wrap">
+						<div class="s1_pic">
+				      		<a href="${base}${product.path}" class="J_to_list"><img width="310" height="180" alt="${product.name}" src="${product.image}"></a>
+						</div>
+						<div class="s1_info">
+							<span class="s1_info_name"> 
+								<a  href="${base}${product.path}" class="J_to_list">${product.name}</a>
+								<span class="add-cart" onclick="javascript:addToCart(${product.id},1);"><img src="${base}/templates/${config.theme}/front/static/images/cart.png"/></span>
+							</span>
+							<span class="s1_info_discount" style="padding-top:8px;color: #1f8902;"><span>零售价：￥${product.price}</span></span>
+		          			<span class="s1_info_time"><span>规格${product.specifications}</span></span>
+						</div>
+					</li>
+					[/#list]
+				[/@product_list]
+  			</ul>
+		</div>
+		<div id="J_hotsell_wrap" class="shoplast J_scrollspy">
+			<div class="a_shop_tit a_shop_bestsell"></div>
+			<ul class="shop_lastest clearfix" id="J_wrap_pro_add">
+				[@product_list count=9 type=2 orderBy="sales desc" ]
+ 					[#list products as product]
+		      		<li class="s1_mod  J_proPic_wrap">
+						<div class="s1_pic">
+		                      	<a  href="${base}${product.path}" class="J_to_list"><img width="310" height="180" alt="${product.name}" src="${product.image}"></a>
+						</div>
+						<div class="s1_info">
+							<span class="s1_info_name"> 
+								<a  href="${base}${product.path}" class="J_to_list">${product.name}</a>
+								<span class="add-cart" onclick="javascript:addToCart(${product.id},1);"><img src="${base}/templates/${config.theme}/front/static/images/cart.png"/></span>
+							</span>
+		                          <span class="s1_info_discount" style="padding-top:8px;color: #1f8902;"><span>零售价：￥${product.price}</span></span>
+		                          <span class="s1_info_time"><span>规格${product.specifications}</span></span>
+						</div>
+					</li>
+					[/#list]
+				[/@product_list]
+			</ul>
+		</div>
+       	<div id="J_hotsell_wrap" class="shoplast J_scrollspy">
+			<div class="a_shop_tit a_shop_hotsell"></div>
+			<ul class="shop_lastest clearfix" id="J_wrap_pro_add">
+				[@product_list count=9 type=3 orderBy="sales desc" ]
+ 					[#list products as product]
+		      		<li class="s1_mod  J_proPic_wrap">
+						<div class="s1_pic">
+				            <img src="${base}/templates/${config.theme}/front/static/images/brd.png" style="width: 25%;position: absolute;right: 0%;top:-3%;"/>            
+				            <a  href="${base}${product.path}" class="J_to_list"><img width="310" height="180" alt="${product.name}" src="${product.image}"></a>
+						</div>
+						<div class="s1_info">
+							<span class="s1_info_name"> 
+								<a  href="${base}${product.path}" class="J_to_list">${product.name}</a>
+								<span class="add-cart" onclick="javascript:addToCart(${product.id},1);"><img src="${base}/templates/${config.theme}/front/static/images/cart.png"/></span>
+							</span>
+		                          <span class="s1_info_discount" style="padding-top:8px;color: #1f8902;"><span>零售价：￥${product.price}</span></span>
+		                          <span class="s1_info_time"><span>规格${product.specifications}</span></span>
+						</div>
+					</li>
+					[/#list]
+				[/@product_list]
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- footer start -->
+[#include "templates/${config.theme}/front/footer.html"]
+<!-- footer end -->
+</body>
+</html>

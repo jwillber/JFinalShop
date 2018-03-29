@@ -1,0 +1,88 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>支付</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm2.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/cart_index.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/checkout_index.css" rel="stylesheet" type="text/css" />
+<style>
+	.shop_list {margin-bottom:20px;}
+</style>
+</head>
+<body>
+<!-- order_header start -->
+[#include "templates/${config.theme}/front/orderHeader.html"]
+<!-- order_header end -->      
+<div id="container">
+	<div class="clearfix"><div class="order_map order_map_step3 fr"></div></div>
+    <div id="J_comm_ad" class="information_bar hlight_main hidden"></div>
+    <div class="m_box1 suc_main">
+        <div class="suc_hd">
+	        <div class="order_result_tip">
+			    <i class="ico i_ok_32"></i><span class="txt">恭喜您，订单提交成功！</span>
+			</div>
+		</div>
+    	<div class="suc_bd">
+        	<div class="m_box2">
+            	<div class="m_box2_hd"><h3 class="title">订单信息</h3></div>
+            	<div class="m_box2_bd">
+                	<div class="suc_order_list">
+						<div class="suc_order_item">
+                            <i class="i_arrow_left_9"></i>
+                            <div class="suc_order_main">
+                                <p class="order_desc">订&nbsp;&nbsp;单&nbsp;&nbsp;号：${order.sn}</p>
+                                <p class="order_desc">订单金额：<span class="order_money">￥${order.amount}</span></p>  
+								<p class="order_desc"> 配送方式: <strong>${order.shippingMethodName}</strong></p>
+							</div>
+                        </div>
+					</div>
+					<div id="paymentTabModule" class="mod_box co_payment z_co_payment_inited">
+		                <div class="mod_hd clearfix">
+		                    <strong class="mod_tit fl">支付方式</strong>
+		                    <div class="co_payment_top_ad fl">
+		                        <span class="hlight_main hidden J_ad_AD14"></span>
+		                        <div class="light_gray ml20 fl J_ad_AD14_dft"> *&nbsp;推荐使用线上支付，更方便快捷</div>
+		                    </div>
+		                </div>
+		                <div id="paymentTabContainer" class="mod_bd co_payment_main clearfix z_wallet_none">
+		                    <div id="J_payment_record_module" class="fl co_record_wrap z_no_record">
+		                        <div class="co_payment_record fl">
+		                            <div style="clear:both;"></div>
+		                            <div class="radio fl" >
+		                                <input type="radio" id="alipay" name="paymentMethod" checked value="alipay" class="input_radio"/>
+		                                <label for="alipay" class="f14 bold vm" >支付宝</label>
+		                            </div>
+		                            <div style="clear:both;"></div>
+		                            <div class="radio fl" >
+		                                <input type="radio" id="weixin" name="paymentMethod" value="weixin" class="input_radio"/>
+		                                <label for="weixin" class="f14 bold vm" >微信支付</label>
+		                            </div>
+		                            <div style="clear:both;"></div>
+		                        </div>
+		                    </div> 
+		                </div>
+		            </div>
+                	<div class="suc_orders_bar">
+                    	<div class="suc_orders_income">
+		                    <p class="order_desc"><div style="text-align:center"><input type="button" onclick="javascript:location.href='${base}/payment/pay?orderId=${order.id}'" value="支付" /></div></p>
+						</div>
+						<span class="goto_cart">您还可以&nbsp;<a class="f_blue" href="${base}/">继续购物&gt;&gt;</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="blank5"></div>
+<div style="clear:both; margin-bottom:20px;"></div>
+<div id="footer">
+	<!-- footer_site_nav start -->
+	[#include "templates/${config.theme}/front/footerSiteNav.html"]
+	<!-- footer_site_nav end -->
+  	<!-- footer_site_info start -->
+	[#include "templates/${config.theme}/front/footerSiteInfo.html"]
+	<!-- footer_site_info end -->
+</div>
+</body>
+</html>

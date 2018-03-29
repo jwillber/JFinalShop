@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>添加商品</title>
+[#include "/WEB-INF/admin/include/common.html"]
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>添加商品</h5>
+            </div>
+           <form id="inputForm" action="save" enctype="multipart/form-data" method="post">
+                <div class="tabs-container">
+                   <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1">基本信息</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-2">商品介绍</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-3">商品图片</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-4">商品参数</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body form-horizontal">
+		                        <div class="form-group">
+                                    <label class="col-sm-3 control-label">商品分类:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control" id="productCategoryId" name="productCategoryId">
+                                            [#list productCategoryTree as productCategory]
+                                                <option value="${productCategory.id}">
+                                                    [#if productCategory.grade != 0]
+                                                        [#list 1..productCategory.grade as i]
+                                                            &nbsp;&nbsp;
+                                                        [/#list]
+                                                    [/#if]
+                                                    ${productCategory.name}
+                                                </option>
+                                            [/#list]
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">名称：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="名称" class="form-control" type="text"  name="name"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">副标题：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="副标题" class="form-control" type="text"  name="caption"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">销售价：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="销售价" class="form-control" type="text"  id="price" name="price"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">成本价：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="成本价" class="form-control" type="text"  id="cost" name="cost"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">市场价：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="市场价" class="form-control" type="text"  id="marketPrice" name="marketPrice"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">展示图片：</label>
+                                    <div class="col-sm-3">
+                                        <input placeholder="展示图片" type="text" name="image" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a href="javascript:;" id="filePicker" class="btn btn-primary">选择文件</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">单位：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="单位" type="text" name="unit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">重量：</label>
+                                    <div class="col-sm-3">
+                                       <input placeholder="单位: 克" class="form-control" type="text"  name="weight"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">设置：</label>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                           <label class="m-r"><input type="checkbox" name="isMarketable" value="true" checked="checked" />是否上架</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">备注：</label>
+                                    <div class="col-sm-3">
+                                        <input placeholder="备注" class="form-control" type="text" name="memo">
+                                    </div>
+                                </div>
+	                        </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane">
+                            <div class="panel-body form-horizontal">
+                                <div class="form-group">
+                                   <textarea id="introduction" name="introduction" class="ibox-content no-padding" style="height: 250px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-pane">
+                            <div class="panel-body form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                       <a href="javascript:;" id="addProductImage" class="btn btn-primary">增加图片</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-horizontal clearfix">
+                                        <table class="table table-bordered" id="productImageTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>文件</th>
+                                                    <th>标题</th>
+                                                    <th>排序</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-4" class="tab-pane">
+                            <div class="panel-body form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <a href="javascript:;" id="addParameter" class="btn btn-primary">增加参数</a>
+                                        <a href="javascript:;" id="resetParameter" class="btn btn-primary">重置参数</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-6">
+	                                    <div class="form-horizontal clearfix">
+	                                        <table class="table table-bordered" id="parameterTable"></table>
+	                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer col-sm-3 col-sm-offset-2">
+                    <button type="submit" class="btn btn-w-m btn-primary">确定</button>
+                    <button type="button" class="btn btn-w-m btn-default" onclick="history.back(); return false;">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+$().ready(function() {
+
+    var $inputForm = $("#inputForm");
+    var $filePicker = $("#filePicker");
+    var $introduction = $("#introduction");
+    var $productCategoryId = $("#productCategoryId");
+    var $productImageTable = $("#productImageTable");
+    var $addProductImage = $("#addProductImage");
+    var $parameterTable = $("#parameterTable");
+    var $addParameter = $("#addParameter");
+    var $resetParameter = $("#resetParameter");
+    var productImageIndex = 0;
+    var parameterIndex = 0;
+    
+    $filePicker.uploader();
+    
+    $introduction.editor();
+    
+    loadParameter();
+    
+    // 商品分类
+    $productCategoryId.change(function() {
+    	if ($parameterTable.find("input.parameterEntryValue[value!='']").size() == 0) {
+            loadParameter();
+        }
+    });
+    
+    // 增加商品图片
+    $addProductImage.click(function() {
+        $productImageTable.append(
+            [@compress single_line = true]
+                '<tr>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="file" name="productImages[' + productImageIndex + '].file" class="productImageFile" \/>
+                            <\/div>
+                        <\/div>
+                    <\/td>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="text" name="productImages[' + productImageIndex + '].title" class="form-control"\/>
+                            <\/div>
+                        <\/div>
+                    <\/td>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <input type="text" name="productImages[' + productImageIndex + '].sort" class="form-control productImageSort" \/>
+                            <\/div>
+                        <\/div>
+                    <\/td>
+                    <td>
+                        <a href="javascript:;" class="remove">[删除]<\/a>
+                    <\/td>
+                <\/tr>'
+            [/@compress]
+        );
+        productImageIndex ++;
+    });
+    
+    // 删除商品图片
+    $productImageTable.on("click", "a.remove", function() {
+        $(this).closest("tr").remove();
+    });
+    
+    // 增加参数
+    $addParameter.click(function() {
+        $(
+            [@compress single_line = true]
+                '<tr>
+                    <td>
+                        <table class="table">
+                            <tr>
+                                <th> 参数组:<\/th>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <input type="hidden" name="parameterValues[' + parameterIndex + '].sort" value="' + parameterIndex + '" \/>
+                                            <input type="text" name="parameterValues[' + parameterIndex + '].subgroup" class="form-control parameterSubgroup" value=""\/>
+                                        <\/div>
+                                    <\/div>
+                                <\/td>
+                                <td>
+                                    <a href="javascript:;" class="remove group">[删除]<\/a>
+                                    <a href="javascript:;" class="add">[添加]<\/a>
+                                <\/td>
+                            <\/tr>
+                            <tr>
+                                <th>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <input type="hidden" name="parameterValues[' + parameterIndex + '].entries[0].sort" value="0" \/>
+                                            <input type="text" name="parameterValues[' + parameterIndex + '].entries[0].name" class="form-control parameterEntryName" value=""\/>
+                                        <\/div>
+                                    <\/div>
+                                <\/th>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <input type="text" name="parameterValues[' + parameterIndex + '].entries[0].value" class="form-control parameterEntryValue" value=""\/>
+                                        <\/div>
+                                    <\/div>
+                                <\/td>
+                                <td>
+                                    <a href="javascript:;" class="remove">[删除]<\/a>
+                                <\/td>
+                            <\/tr>
+                        <\/table>
+                    <\/td>
+                <\/tr>'
+            [/@compress]
+        ).appendTo($parameterTable).find("table").data("parameterIndex", parameterIndex).data("parameterEntryIndex", 1);
+        parameterIndex ++;
+    });
+    
+    // 重置参数
+    $resetParameter.click(function() {
+        $.dialog({
+            type: "warn",
+            content: "确认要重置参数?",
+            width: 450,
+            onOk: function() {
+                loadParameter();
+            }
+        });
+    });
+    
+    // 删除参数
+    $parameterTable.on("click", "a.remove", function() {
+        var $this = $(this);
+        if ($this.hasClass("group")) {
+            $this.closest("table").closest("tr").remove();
+        } else {
+            if ($this.closest("table").find("tr").size() <= 2) {
+                alert("不能删除");
+                return false;
+            }
+            $this.closest("tr").remove();
+        }
+    });
+    
+    // 增加参数
+    $parameterTable.on("click", "a.add", function() {
+        var $table = $(this).closest("table");
+        var parameterIndex = $table.data("parameterIndex");
+        var parameterEntryIndex = $table.data("parameterEntryIndex");
+        $table.append(
+            [@compress single_line = true]
+                '<tr>
+                    <th>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="hidden" name="parameterValues[' + parameterIndex + '].entries[' + parameterEntryIndex + '].sort" value="' + parameterEntryIndex + '" \/>
+                                <input type="text" name="parameterValues[' + parameterIndex + '].entries[' + parameterEntryIndex + '].name" class="form-control parameterEntryName" value=""\/>
+                            <\/div>
+                        <\/div>
+                    <\/th>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="text" name="parameterValues[' + parameterIndex + '].entries[' + parameterEntryIndex + '].value" class="form-control parameterEntryValue" value=""\/>
+                            <\/div>
+                        <\/div>
+                    <\/td>
+                    <td>
+                        <a href="javascript:;" class="remove">[删除]<\/a>
+                    <\/td>
+                <\/tr>'
+            [/@compress]
+        );
+        $table.data("parameterEntryIndex", parameterEntryIndex + 1);
+    });
+    
+    // 加载参数
+    function loadParameter() {
+        $.ajax({
+            url: "parameters",
+            type: "GET",
+            data: {productCategoryId: $productCategoryId.val()},
+            dataType: "json",
+            success: function(data) {
+                parameterIndex = 0;
+                $parameterTable.find("tr").remove();
+                $.each(data, function(i, parameter) {
+                    var $parameterGroupTable = $(
+                        [@compress single_line = true]
+                            '<tr>
+                                <td>
+                                    <table class="table">
+                                        <tr>
+                                            <th>分组:<\/th>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col-sm-6">
+                                                        <input type="hidden" name="parameterValues[' + parameterIndex + '].sort" value="' + parameterIndex + '" \/>
+                                                        <input type="text" name="parameterValues[' + parameterIndex + '].subgroup" class="form-control parameterSubgroup" value="' + escapeHtml(parameter.subgroup) + '" value=""\/>
+                                                    <\/div>
+                                                <\/div>
+                                            <\/td>
+                                            <td>
+                                                <a href="javascript:;" class="remove subgroup">[删除]<\/a>
+                                                <a href="javascript:;" class="add">[添加]<\/a>
+                                            <\/td>
+                                        <\/tr>
+                                    <\/table>
+                                <\/td>
+                            <\/tr>'
+                        [/@compress]
+                    ).appendTo($parameterTable).find("table").data("parameterIndex", parameterIndex);
+                    
+                    var parameterEntryIndex = 0;
+                    $.each(parameter.names, function(i, name) {
+                        $parameterGroupTable.append(
+                            [@compress single_line = true]
+                                '<tr>
+                                    <th>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <input type="hidden" name="parameterValues[' + parameterIndex + '].entries[' + parameterEntryIndex + '].sort" value="' + parameterEntryIndex + '" \/>
+                                                <input type="text" name="parameterValues[' + parameterIndex + '].entries[' + parameterEntryIndex + '].name" class="form-control parameterEntryName" value="' + escapeHtml(name) + '" value=""\/>
+                                            <\/div>
+                                        <\/div>
+                                    <\/th>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <input type="text" name="parameterValues[' + parameterIndex + '].entries[' + parameterEntryIndex + '].value" class="form-control parameterEntryValue" value=""\/>
+                                            <\/div>
+                                        <\/div>
+                                    <\/td>
+                                    <td>
+                                        <a href="javascript:;" class="remove">[删除]<\/a>
+                                    <\/td>
+                                <\/tr>'
+                            [/@compress]
+                        );
+                        parameterEntryIndex ++;
+                    });
+                    $parameterGroupTable.data("parameterEntryIndex", parameterEntryIndex);
+                    parameterIndex ++;
+                });
+            }
+        });
+    }
+    
+    $.validator.addClassRules({
+        productImageFile: {
+            required: true,
+            extension: "${config.uploadImageExtension}"
+        },
+        productImageSort: {
+            digits: true
+        },
+        parameterGroup: {
+            required: true
+        }
+    });
+    
+    // 表单验证
+    $inputForm.validate({
+        rules: {
+        	name: "required",
+        	productCategoryId: "required",
+            price: {
+            	required: true,
+                min: 0,
+                decimal: {
+                    integer: 12,
+                    fraction: 2
+                }
+            },
+            cost: {
+                min: 0,
+                decimal: {
+                    integer: 12,
+                    fraction: 2
+                }
+            },
+            marketPrice: {
+                min: 0,
+                decimal: {
+                    integer: 12,
+                    fraction: 2
+                }
+            },
+            image: {
+                pattern: /^(http:\/\/|https:\/\/|\/).*$/i
+            }
+        }
+    });
+
+});
+</script>

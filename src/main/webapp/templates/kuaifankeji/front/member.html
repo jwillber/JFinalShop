@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户中心</title>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/comm.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/global.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/information.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/infolist.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/member.css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/front/static/css/order-list.css">
+</head>
+<body>
+<!-- header start -->
+[#include "templates/${config.theme}/front/header.html"]
+<!-- header end -->
+<div class="f-cb g-body">
+	<!-- menu start -->
+	[#include "templates/${config.theme}/front/memberHelpTop.html"]
+	<!-- menu end -->
+	<div class="block clearfix">
+		<div class="g-side">
+			<!-- menu start -->
+			[#include "templates/${config.theme}/front/memberMenu.html"]
+			<!-- menu end -->
+		</div>
+		<div class="g-ol">
+			<h3 class="main_title"></h3>
+			<table class="table table_striped">
+				<tr><td style="text-align:left"><b class="f4">${session.session_member.mobile}</b> 欢迎您回到用户中心！</td></tr>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- footer start -->
+[#include "templates/${config.theme}/front/footer.html"]
+<!-- footer end -->
+</body>
+</html>
+

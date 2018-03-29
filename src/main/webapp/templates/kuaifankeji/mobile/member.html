@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>会员中心</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/personal.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+</head>
+<body>
+	<div class="personal">
+		<header class="p_top">
+			<div>
+				<span></span>
+				<p>${session.session_member.mobile}</p>
+               <p>普通会员</p>							
+			</div>
+			<p>
+                <a href="${base}/member/password/edit">修改密码</a><a href="${base}/logout">退出登录</a>
+			</p>
+			<nav><a href="javascript:void(0)">￥0.00<span>余额 (元)</span></a></nav>
+		</header>
+		<section class="orderMsg">
+			<p><a href="${base}/member/order/list">查看全部订单</a>我的订单</p>
+			<nav><a href="${base}/member/order/list?status=pendingPayment">待付款</a><a href="${base}/member/order/list?status=pendingShipment">待发货</a><a href="${base}/member/order/list?status=completed">已完成</a><a href="${base}/member/receiver/list">收货地址</a></nav>
+		</section>
+		<!-- <section class="quickEntry"><a href="javascript:void(0)">买菜宝</a><a href="javascript:void(0)">奖品</a><a href="javascript:void(0)">红包</a><a href="javascript:void(0)">充值</a><a href="javascript:void(0)">积分兑换</a><a href="javascript:void(0)">收藏商品</a><a href="javascript:void(0)">天天特惠</a><a href="javascript:void(0)">秒杀</a></section> -->
+	</div>
+	<!-- header start -->
+   <footer>
+        <a href="${base}/">首页</a>
+        <a href="${base}/member/order/list">订单</a>
+        <a class="cur" href="${base}/member">我的</a>
+        <a href="${base}/cart/list">
+            <div class="cart">
+                <span></span>
+                <em id="cartQuantity">0</em>
+                <div>&yen;38起送</div>
+            </div>
+        </a>
+    </footer>
+	<!-- header end -->
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+    loadCart();
+})
+
+function loadCart(){
+    //ajax
+    $.ax("${base}/cart/view",null,'GET',null,'json',
+            function(data){
+                $("#cartQuantity").text(data.quantity);
+            },
+            function(data){
+        });
+    
+}   
+
+</script>

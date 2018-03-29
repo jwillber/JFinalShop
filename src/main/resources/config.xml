@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kuaifan>
+	<config name="siteName" value="快帆工作室" />
+	<config name="siteUrl" value="http://www.kuaifankeji.com" />
+	<config name="logo" value="/upload/image/logo.png" />
+	<config name="title" value="网站建设,网站开发,微信公众号开发,微信小程序开发,微信APP开发,webapp开发" />
+	<config name="keywords" value="快帆工作室,KuaiFanKeJi,互联网建站平台,网站建设,网站开发,微信公众号开发,微信小程序开发,微信APP开发,webapp开发" />
+	<config name="description" value="快帆工作室,KuaiFanKeJi,互联网建站平台,网站建设,网站开发,微信公众号开发,微信小程序开发,微信APP开发,webapp开发,省时省力省心,标准化制作流程,让您建站无忧" />
+	<config name="theme" value="kuaifankeji" />
+    <config name="largeProductImageWidth" value="700" />
+    <config name="largeProductImageHeight" value="700" />
+    <config name="mediumProductImageWidth" value="300" />
+    <config name="mediumProductImageHeight" value="300" />
+    <config name="thumbnailProductImageWidth" value="170" />
+    <config name="thumbnailProductImageHeight" value="170" />
+    <config name="defaultLargeProductImage" value="/upload/image/default_large.jpg" />
+    <config name="defaultMediumProductImage" value="/upload/image/default_medium.jpg" />
+    <config name="defaultThumbnailProductImage" value="/upload/image/default_thumbnail.jpg" />
+	<config name="isWatermarkEnabled" value="false" />
+	<config name="watermarkAlpha" value="50" />
+	<config name="watermarkImage" value="/resources/watermark.png" />
+	<config name="watermarkPosition" value="no" />
+	<config name="fileUploadPath" value="/upload/${.now?string('yyyyMM')}/" />
+    <config name="smsAccessKey" value="xxx" />
+    <config name="smsAccessSecret" value="xxx" />
+    <config name="smsSignName" value="快帆科技" />
+    <config name="smsEndpoint" value="xxx" />
+    <config name="smsTopicName" value="xxx" />
+    <config name="alipayAppId" value="xxx" />
+    <config name="alipayAppPrivateKey" value="xxx" />
+    <config name="alipayPublicKey" value="xxx" />
+    <config name="weixinpayAppId" value="xxx" />
+    <config name="weixinpayMchId" value="xxx" />
+    <config name="weixinpayKey" value="xxx" />
+</kuaifan>

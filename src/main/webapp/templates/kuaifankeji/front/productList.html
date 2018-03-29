@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品列表</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+<style>
+  .add-cart {display:block;width:22px;height:22px;float:right;cursor:pointer;}
+  .add-cart img {display:block;width:22px;height:22px;}
+</style>
+</head>
+<body id="list_define">
+<!-- header start -->
+[#include "templates/${config.theme}/front/header.html"]
+<!-- header end -->
+<div class="wrap" id="J_display_wrap">
+    <div style="margin: 15px 0">
+    	当前位置: <a href="${base}/">首页</a>  
+    	[@product_category_parent_list productCategoryId=productCategory.id]
+			[#list productCategories as category]
+    			<code>&gt;</code><a href="${base}${category.path}">${category.name}</a>
+    		[/#list]
+    	[/@product_category_parent_list]   
+    </div>
+    <div class="pro_choose" id="J_fileter_outFrame">
+        <div class="pro_cover"></div>
+        <a name="J_fileter_position"></a>
+        <div id="J_fileter_frame">
+            <div class="pro_pickBar clearfix">
+            	<div class="page page_special" id="J_page_special">
+            		<!-- pagination start -->
+               		[#include "templates/${config.theme}/front/pagination.html"]
+            		<!-- pagination end -->
+               	</div>
+            </div>
+        </div>
+    </div>
+    <div class="pro_list clearfix">
+    	[#list page.list as product]
+    		<dl class="J_pro_items">
+	            <dt class="pro_list_pic">
+	                <a href="${base}${product.path}"><img src="${product.image}" alt="${product.name}" class="goodsimg" width="235" height="137"/></a>
+	            </dt>
+	            <dd class="brand_tit gray"></dd>
+	            <dd class="pro_list_tit" style="width:100%;">
+	                <a href="${base}${product.path}" title="${product.name}" style="width:85%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;display: inline-block">${product.name}</a>
+	                <span class="add-cart" onclick="javascript:addToCart(${product.id});"><img src="${base}/templates/${config.theme}/front/static/images/cart.png"/></span>
+	            </dd>
+	            <dd>
+	            	<span class="guige">规格<em>${product.specifications}</em></span>
+	            </dd>
+	            <dd class="deep_red">
+	                <span >零售价：<em>￥${product.price}</em></span>
+	       		</dd>
+        	</dl>
+    	[/#list]
+	</div>
+	<div id="J_bottom_page" class="page list_define_page">
+    	<div class="fr">
+    		<!-- pagination start -->
+    		[@pagination pageNumber = page.pageNumber totalPages = page.totalPage]
+				[#include "templates/${config.theme}/front/pagination.html"]
+			[/@pagination]
+    		<!-- pagination end -->
+		</div>
+	</div>
+</div>
+<!-- footer start -->
+[#include "templates/${config.theme}/front/footer.html"]
+<!-- footer end -->
+</body>
+</html>

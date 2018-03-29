@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的订单</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/personal.css"/>
+<style type="text/css">
+.page {text-align: center;height:45px;font-size:14px;}
+.page a {line-height:45px;}
+.tempWrap ul{width:999px !important;height:76px;}
+
+/*homepage*/
+.header{height:45px;background-color:#6bc30d;position:fixed;left:0;top:0;width:100%;line-height:45px;z-index:999;}
+.header .logo{position:absolute;left:10px;top:10px;}
+.header .logo img{display:block;width:65%;}
+.head_meun{position:absolute;right:0;top:0;}
+.head_meun a{font-family:"ElegantIcons";color:#fff;font-size:2.5em;margin-right:10px;}
+.head_meun a:before {content:"\63";}
+.header h2{text-align:center;color:#fff;font-size:1.5em;overflow:hidden;padding:0 70px 0 90px;white-space:nowrap;text-overflow:ellipsis;}
+.header h2 a{color:#fff;}
+.header h2 a:after{font:1.2em "ElegantIcons";content:"\43";vertical-align:sub;}
+
+
+
+.nullicon, .ordersuccess {
+    font-size: 14px;
+    margin: 50px auto;
+    text-align: center;
+}
+.fail_checked, .n_brand, .n_cart, .n_finder, .n_heart, .n_message, .n_order, .n_page, .n_wallet, .succed_checked {
+    background:url("${base}/templates/${config.theme}/mobile/static/images/nullicon.png");
+    background-size:200px auto;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+}
+a {
+    color: #808080;
+    text-decoration: none;
+}
+.btn_cancel, .btn_ensure, .btn_gry, .btn_red, .btn_sure, .btn_unav, .btn_white, .btn_white_order {
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+}
+.btn_red {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #68C436), color-stop(100%, #50AD1D));
+    background-image: -webkit-linear-gradient(#68C436,#50AD1D);
+    background-image: -moz-linear-gradient(#68C436,#50AD1D);
+    background-image: -o-linear-gradient(#68C436,#50AD1D);
+    background-image: linear-gradient(#68C436,#50AD1D);
+    border: 1px solid #50AD1D;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    width: 100%;
+}
+.incart {
+    display: inline-block;
+    margin-top: 10px;
+    width: 50%;
+}
+</style>
+</head>
+<body>
+<header class="header">
+        <div class="logo fl"><a href="${base}/"><img src="${base}/templates/${config.theme}/mobile/static/images/logo.png" alt="" /></a></div>
+        <div class="head_meun"><a href="${base}/view/help"></a></div>
+    </header>
+    <div style="line-height:44px; height:44px; width:100%"></div>
+	[#if page.list?? && page.list?size>0]
+	[#list page.list as order]
+		<div class="order_item" onclick="javascript:location.href='${base}/member/order/detail/${order.id}'">
+			<header><span>${order.statusName}</span>${order.createDate}</header>
+			<div class="picScroll-left">
+				<div class="bd">
+					<ul style="width:1000px;">
+						[#list order.orderItems as orderItem]
+							<li><img src="${orderItem.image}" alt="${orderItem.name}" /></li>
+						[/#list]
+					</ul>
+				</div>
+				<a class="next"></a>
+			</div>
+			<p>共${order.quantity}件商品   ￥${order.totalPrice}</p>
+			<!-- <section><a href="user.php&#63;act=order_comment">去评论</a><a href="user.php&#63;act=rbuy&id=369419">再次购买</a></section> -->
+		</div>
+	[/#list]
+	[#else]
+    <div class="nullicon"> <span class="n_cart"></span>
+            <p>您的订单空空如也</p>
+            <a class="btn_red incart" href="${base}/">去首页逛逛</a>
+        </div>
+        [/#if]
+	<footer>
+        <a href="${base}/">首页</a>
+        <a class="cur" href="${base}/member/order/list">订单</a>
+        <a href="${base}/member">我的</a>
+        <a href="${base}/cart/list">
+            <div class="cart">
+                <span></span>
+                <em id="cartQuantity">0</em>
+                <div>&yen;38起送</div>
+            </div>
+        </a>
+    </footer>
+</body>
+</html>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+<script type="text/javascript">
+$(function(){
+    loadCart();
+})
+
+function loadCart(){
+    //ajax
+    $.ax("${base}/cart/view",null,'GET',null,'json',
+            function(data){
+                $("#cartQuantity").text(data.quantity);
+            },
+            function(data){
+        });
+    
+}   
+
+</script>

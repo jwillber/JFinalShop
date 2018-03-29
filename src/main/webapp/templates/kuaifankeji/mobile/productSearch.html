@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品搜索</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link href="${base}/templates/${config.theme}/mobile/static/css/diancai.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${base}/templates/${config.theme}/mobile/static/css/style.css"/>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/mobile/static/js/ajax.js"></script>
+</head>
+<body>
+	<header class="header">
+		<div class="logo"><a href="${base}/"><img src="${base}/templates/${config.theme}/mobile/static/images/logo.png" alt="" /></a></div>
+		<h2>搜索</h2>
+		<div class="head_meun"><a href="${base}/view/help"></a></div>
+	</header>
+	<div style="height: 45px"></div>
+	<form  id="searchform" action="${base}/product/search" method="get" >
+	    <div class="search">
+	        <input  type="search" id="keyword" name="keyword" value="${keyword}" placeholder="输入关键词搜索">
+	        <a class="btn_search" href="javascript:$('#searchform').submit();">搜索</a>
+	    </div>
+	</form>
+	<div style="background-color:#FFF" id="navbody">
+		<div id="infoSection">
+			<section style="width: 100%">
+				<section class="list listimg">
+					<dl>
+						<div class="ccbg" style="width: 100%">
+							[#if page.list?? && page.list?size>0]
+								[#list page.list as product]
+								<dd style="width:100%">
+									<div class="tupian">
+										<a href="${base}${product.path}"><img src="${product.image}"/></a>
+										<div class="add">
+		                                    <h3><a href="${base}${product.path}">${product.name}</a></h3>
+		                                    <em>￥${product.price}元/份<del>￥${product.market_price}元</del></em>
+		                                    <p class="dpNum">${product.sales}人买过</p>
+										</div>
+										<div class="pronum">
+											<a id="reduceProduct_${product.id}" onClick="reduceProduct('${product.id}');" style="display: none"></a>
+											<span id="productQuantity_${product.id}" class="count"></span>
+											<a id="addProduct_${product.id}" onClick="addProduct('${product.id}');"></a>
+										</div>
+									</div>
+								</dd>
+								[/#list]
+								[#else]
+								<dd style="border:0px;">
+                                    <div class="wap_options">
+                                        <dl>
+                                            <dt>热门搜索：</dt>
+                                            <dd>
+                                            	[#list setting.hotSearches as hotSearche]
+                                                	<em><a href="${base}/product/search?keyword=${hotSearche}" target="_self">${hotSearche}</a></em>
+                                                [/#list]
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </dd>
+							[/#if]
+						</div>
+					</dl>
+				</section>
+			</section>
+		</div>
+		<div class="clr"></div>
+	</div>
+ 	<div style="height: 50px"></div>
+	<footer>
+		<a class="cur" href="${base}/">首页</a>
+		<a href="${base}/order/list">订单</a>
+		<a href="${base}/member">我的</a>
+		<a href="${base}/cart/list">
+			<div class="cart">
+				<span></span>
+				<em id="cartQuantity">0</em>
+				<div>&yen;38起送</div>
+			</div>
+		</a>
+	</footer>
+</body>
+</html>
+							

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品详情</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/beauty_detail.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/resys.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+</head>
+<body class="w960">
+<!-- header start -->
+[#include "templates/${config.theme}/front/header.html"]
+<!-- header end -->
+<script type="text/javascript">
+$(document).ready(function () {
+	var sublist00 = $("#J_buy_topbar").offset().top;	
+	var stickyMenu = function(){
+		var scrollTop = $(window).scrollTop(); 
+		if (scrollTop > sublist00) { 
+			 $("#J_buy_topbar").addClass("bt_tab_fixed");
+			} else {
+				$("#J_buy_topbar").removeClass("bt_tab_fixed");
+			}   
+	};
+	$(window).scroll(function() {
+		 stickyMenu();
+	});
+});
+</script>
+<div class="fly_fav_ico hidden" id="J_min_addMyFav" style="width:20px; height:17px; z-index:999;"></div>
+<div class="bt_bg">
+	<div class="layout">
+		<div class="bt_crumbs">
+           	当前位置: <a href="${base}/">首页</a>
+   	    	[@product_category_parent_list productCategoryId=product.productCategory.id]
+				[#list productCategories as category]
+	    			<code>&gt;</code><a href="${base}${category.path}">${category.name}</a>
+	    		[/#list]
+    		[/@product_category_parent_list]
+    		<code>&gt;</code><a href="${base}${product.productCategory.path}">${product.productCategory.name}</a>
+    		<code>&gt;</code>${product.name}
+		</div>
+		<div class="bt_box">
+			<div class="bt_box_t clearfix">
+				<div class="bt_box_tL fl">
+					<h1 class="bt_title">${product.name}</h1>
+					<p class="bt_discount" id="J_pmsContent"></p>
+				</div>
+				<div class="bt_box_tr fr">
+					<div class="bt_logo">
+						
+						<a href="javascript:collect(236)" class="bt_like" id="J_myFavBrand"></a>
+					</div>
+				</div>
+			</div>
+			<form action="javascript:addToCart(${product.id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+				<div class="bt_infos_box clearfix">
+					<div class="bt_infos_l fl">
+	                	<img src="${product.image}" alt="${product.name}" class="bt_good_img" width="845" height="490">
+					</div>
+					<div class="bt_infos_r fr">
+						<div class="bt_infos_r_t">
+							<div class="bt_infos_r_con">
+								<b class="bt_infos_price"><b>￥${product.price}</b></b>
+								<div class="bt_infos_sign"></div>
+							</div>
+						</div>
+						<ul class="bt_price_list clearfix">
+							<li>
+								<p>产地</p>
+								<p>${product.production}</p>
+							</li>
+							<li>
+								<p>规格</p>
+								<p>${product.specifications}</p>
+							</li>								
+							<li class="last">
+								<p>重量</p>
+								<p>${product.weight}</p>
+							</li>
+						</ul>
+						<div class="bt_infos_r_m">
+							<div id="bt_onsale">
+								<p style="margin-left:20px;margin-top:20px;margin-right:20px;margin-bottom:20px;font-size:15px;text-align:left;">${product.memo}</p>
+							</div>			
+						</div>
+						<div class="bt_infos_r_b">
+							<div id="J_cart_btn" class="">
+								<div class="bt_counts_prompt" id="bt_counts_prompt">									
+								</div>
+								<span class="bt_counts">数量：</span>
+								<span id="NumberLeftBtn" onClick="changeInput('-')" class="bt_count_reduce J_num_act_reduce"></span>
+								<input name="number" type="text" id="number" value="1" class="bt_count_txt J_pro_num_txt" onblur="changePrice()" />
+								<span id="NumberRightBtn" onClick="changeInput('+')" class="bt_count_add J_num_act_add"></span>
+								<div>
+									<button id="J_mer_saleTag" class="bt_add_car" type="button" onclick="javascript:addToCart(${product.id},2);" value=""></button>
+								</div>
+							</div>			
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="bt_bline bt_goods_other">
+				<div class="bt_goods_other_l">
+					<span class="bt_goods_code">商品编号：<span id="J_stock_code">${product.sn}</span></span>
+					<div class="fr" style="width:168px;">  
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layout clearfix mt">
+		<div class="bt_l fl">
+			<div class="bt_bline mt" id="J_beauty_content_wrap">
+				<div class="bt_tab" id="J_buy_topbar">
+					<div class="bt_tab_box">
+						<ul>
+                               <li class="bt_tab_item "><a href="#bt_con_tab0">商品参数</a></li>
+                               <li class="bt_tab_item "><a href="#bt_con_tab1">商品详情</a></li>
+                               <li class="bt_tab_item "><a href="#bt_con_tab2">基地介绍</a></li>
+                               <li class="bt_tab_item "><a href="#bt_con_tab3">安全保证</a></li>							
+						</ul>
+						<span class="bt_fixed_price">￥${product.price}</span>
+						<button class="bt_fixed_buy" type="button" onclick="javascript:addToCart(${product.id},2);" id="J_topbar_addCart" ></button>	
+					</div>
+				</div>
+				<div class="bt_con">
+                   	<div class="bt_layout bt_lt_par" style="margin-top:20px; min-height:160px;">
+                    	<img src="${product.image}" alt="${product.name}" class="bt_lt_par_img">
+						<ul>
+		        			<li><b class='bt_lt_par_t'>产地：</b><p class='bt_lt_par_p'>${product.production}</p></li>
+		        			<li><b class='bt_lt_par_t'>特点：</b><p class='bt_lt_par_p'>${product.memo}</p></li>
+		        			<li><b class='bt_lt_par_t'>规格：</b><p class='bt_lt_par_p'>${product.specifications}</p></li>
+                        </ul>
+					</div>
+                    <div name="bt_con_tab1" id="bt_con_tab1"><span style="display:none">商品详情</span></div>
+                   	<div class="bt_layout bt_lt_par">
+               			${product.introduction}
+                  	</div>
+					<div name="bt_con_tab2" id="bt_con_tab2"><span style="display:none">基地介绍</span></div>
+                    <div class="bt_layout bt_lt_par">
+                     	<img src="${base}/templates/${config.theme}/front/static/images/base01.jpg">
+                     	<img src="${base}/templates/${config.theme}/front/static/images/base02.jpg">
+                     	<img src="${base}/templates/${config.theme}/front/static/images/base03.jpg">
+                    </div>
+                   	<div name"bt_con_tab3" id="bt_con_tab3"><span style="display:none">保证安全</span></div>
+                   	<div class="bt_layout bt_lt_par">
+                       	<img src="${base}/templates/${config.theme}/front/static/images/safe01.jpg">
+                       	<img src="${base}/templates/${config.theme}/front/static/images/safe02.jpg">
+                       	<img src="${base}/templates/${config.theme}/front/static/images/safe03.jpg">
+                 	</div>
+				</div>
+			</div>
+		</div>
+		<div class="bt_r fr">
+			<div id="hot_div" class="bt_bline mt" style="display: block;">
+				<h2 class="ht_goods_title">热销商品</h2>
+				<div id="hot_list">
+					[@product_list count=3 orderBy="sales desc" ]
+						[#list products as productItem]
+							<dl class="bt_looked_item">
+								<dt class="bt_looked_img">
+									<a class="hot_img" href="${base}${productItem.path}"><img width="110" height="64" class="B_blue" alt="${productItem.name}" src="${productItem.image}"></a>
+								</dt>
+								<dd class="bt_looked_name"><a title="${productItem.name}" target="_blank" href="${productItem.path}">${productItem.name}</a></dd>
+								<dd class="bt_looked_prices"><b>￥${productItem.price}</b></dd>
+							</dl>
+						[/#list]
+					[/@product_list]
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function changeInput(type){
+    var $inputLeft = document.getElementById('NumberLeftBtn');
+    var $inputRight = document.getElementById('NumberRightBtn');
+    var $input = document.getElementById('number');
+    var num = parseInt($input.value);
+    if (type == '+') {
+        num = num + 1;
+    }
+    else{
+        if (num > 1) num = num - 1;
+    }
+    $input.value=num;
+}
+</script>
+<!-- footer start -->
+[#include "templates/${config.theme}/front/footer.html"]
+<!-- footer end -->
+</body>
+</html>

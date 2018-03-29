@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>购物车</title>
+<link href="${base}/templates/${config.theme}/front/static/css/comm2.css" rel="stylesheet" type="text/css" />
+<link href="${base}/templates/${config.theme}/front/static/css/cart_index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/ajax.js"></script>
+<script type="text/javascript" src="${base}/templates/${config.theme}/front/static/js/common.js"></script>
+<style>
+	.shop_list {margin-bottom:20px;}
+</style>
+</head>
+<body>
+<!-- order_header start -->
+[#include "templates/${config.theme}/front/orderHeader.html"]
+<!-- order_header end -->
+<div class="wrap">
+	<div class="clearfix"><div class="order_map order_map_step1 fr"></div></div>
+	<div class="information_bar hlight_main hidden" id="J_comm_ad"></div>
+	<div class="shop_list" id="J_cart_list">
+		<div class="cart_time_tips clearfix J_countDown_normal">
+			<div class="fl f14"><span class="hlight_main bold f16"></span></div>
+            <div class="fl pop_wh_tips">
+                <span class="popup_box"><em class="pop_arrow"></em></span>
+            </div>
+            <div class="cart_confidence">
+                <div class="c_item fl"><i class="ico1"></i>全程冷链</div>
+                <div class="c_item fl"><i class="ico2"></i>基地直供</div>
+                <div class="c_item fl"><i class="ico3"></i>安全保障</div>
+            </div>
+   		</div>
+        <div class="flowBox">
+        	<div class="mod_cl " id="J_supplier_0">
+				<div class="mod_cl_dh">
+					<span class="fl cl_s01 f14">
+						<label class="check_vm">
+							<span class="pr10" style="color: red"></span>
+							<strong class="hlight_main"></strong>
+						</label>
+					</span>
+					<span class="fl cl_s02">单价（元）</span>
+					<span class="fl cl_s03">数量（件）</span>
+					<span class="fl cl_s04">小计</span>
+					<span class="fl cl_s05">操作</span>
+				</div>
+				<div class="mod_cl_db">
+					<dl class="cl_brand_ls" id="J_brand_193459">
+						<dd class="cl_brand_des">
+							<table class="shop_list_tab">
+								[#list currentCart.cartItems as cartItem]
+									<tr id="cart_item_${cartItem.product.id}" class="J_goods_item" >
+										<td width="49">
+											<a href="${cartItem.product.path}" target="_blank" class="pro_img_box">
+												<img src="${cartItem.product.image}" border="0" title="${cartItem.product.name}" width="49" height="62" alt=""  />
+												<span class="por_big_img">
+													<i class="left_arrow"></i>
+													<img src="${cartItem.product.image}" width="190" height="240" alt="" />
+												</span>
+											</a>
+										</td>
+										<td class="pro_tit gray" width="430">
+											<a href="${cartItem.product.path}"  class="gray">${cartItem.product.name}</a>
+				                       	</td>
+										<td width="160" class="f14">${cartItem.product.price}<br />
+				                   			<del>￥${cartItem.product.marketPrice}</del>
+				                   		</td>
+										<td width="115">
+											<div class="pro_num cart_del_confirm_box"><input type="button" onclick="changeQuantity(${cartItem.productId},'-')" class="subtract_btn fl J_cart_numSubtract" >
+				                             	<input type="text" id="cartItem_quantity_${cartItem.productId}" value="${cartItem.quantity}" data="${cartItem.quantity}" size="4" class="num_inp fl J_cart_num" style="text-align:center " onBlur="changePrice(${cartItem.productId})"/>
+				                          		<input type="button" class="add_btn fl J_cart_numAdd" onclick="changeQuantity(${cartItem.productId},'+')" />
+				   							</div>
+										</td>
+										<td width="100" class="f14 bold hlight_main" id="cartItem_subtotal_${cartItem.productId}">￥${cartItem.subtotal}</td>
+										<td width="60">
+											<div class="cart_del_confirm_box">
+				                           		<a href="javascript:if (confirm('您确实要把该商品移出购物车吗？')) deleteCartItem(${cartItem.id},'redirect'); " class="f6">删除</a>   
+				                           	</div>
+				                       	</td>
+									</tr>
+								[/#list]
+		               		</table>
+		           		</dd>
+		       		</dl>
+		  		</div>
+			</div> 
+			<div class="cart_pay_bar" id="J_cart_bar">
+          		<span class="fl cl_goshopping"><a href="${base}/" target="_blank" class="hlight_main cart_goshopping">继续购买</a></span>
+              	<div class="fr shopping_tips">
+              		<a class="button_bg_4 button_bg J_omn_checkout J_checkout" [#if currentCart.cartItems?? && currentCart.cartItems?size>0] href="${base}/order/add" [/#if]>立即结算</a>
+              	</div>
+              	<div class="fr cart_pay_money f14">
+                 	<span class="fr hlight_main J_bar_money"><em class="J_info_total" id="totalPrice">￥${currentCart.totalPrice}</em></span>
+                  	<span class="fr J_bar_money">总金额（<span class="J_pms_fee_hint">不含运费</span>）：</span>
+              	</div>
+             	<span  class="fr cart_pay_money f14">
+                 	<input type="button" value="清空购物车" class="J_add_to_cart button_bg button_bg_11" onclick="location.href='${base}/cart_item/deleteAll'" />
+           	 	</span>
+			</div>
+		</div>
+	</div>
+	<style type="text/css">
+		.fav-border {/*border: 1px solid #e9e9e9;*/}
+		.fav-table {width:100%;border:0px;cellpadding:5px;cellspacing:0px;background-color:#fff;}
+		.fav-table td {line-height:30px;font-size:14px;border:1px solid #e9e9e9;background:#fbfbfb;}
+		.fav-item {text-indent:10px;text-align:left;}
+	</style>
+	<div class="relate_pro_te J_relate" id="J_wrap_relate"><a name="relate"></a>
+		<div class="slider_tag_te">
+		    <span class="toc f14 selected">热销商品</span>
+		</div>
+		[@product_list count=3 orderBy="sales desc" ]
+			[#list products as product]
+				<dl class="pro_relate_list loaded">
+					<dt>
+						<a target="_blank" href="${base}${product.path}" ><img width="180" height="105" alt="" src="${product.image}"></a>
+					</dt>
+					<dd>${product.name}</dd>
+					<dd><del class="pro_relate_old">￥${product.marketPrice}</del><span class="pro_relate_new hlight_main">￥${product.price}</span></dd>
+				</dl>
+			[/#list]
+		[/@product_list]
+	</div>  
+</div>
+<div class="blank5"></div>
+<div style="clear:both; margin-bottom:20px;"></div>
+<div id="footer">
+	<!-- footer_site_nav start -->
+	[#include "templates/${config.theme}/front/footerSiteNav.html"]
+	<!-- footer_site_nav end -->
+  	<!-- footer_site_info start -->
+	[#include "templates/${config.theme}/front/footerSiteInfo.html"]
+	<!-- footer_site_info end -->
+</div>
+</body>
+</html>

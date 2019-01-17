@@ -27,7 +27,7 @@ MVC：JFinal 3.3
 
 官网地址: [http://www.kuaifankeji.com](http://www.kuaifankeji.com)
 
-交流群:575535321
+ 联系QQ：644080923 交流群:575535321
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112514_d895dfac_623319.png "eb9ada18c3b3b239d11a76fe9c348048.png")

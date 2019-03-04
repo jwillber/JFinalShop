@@ -25,7 +25,7 @@ MVC：JFinal 3.3
 
 （5）系统管理(角色、管理员、存储插件、地区、设置、模板、清除缓存)
 
-官网地址: [http://www.kuaifankeji.com](http://www.kuaifankeji.com)
+官网地址: [http://www.jrecms.com](http://www.jrecms.com)
 
  联系QQ：644080923 交流群:575535321
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")

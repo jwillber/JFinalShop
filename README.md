@@ -3,9 +3,9 @@ JFinaShop轻量级商城系统,极速开发,支持手机端和PC端,让您轻松
 
 技术框架
 
-MVC：JFinal 3.3
+MVC：JFinal 3.6
 
-页面:freemarker
+页面:enjoy
 
 缓存:ehcache
 
@@ -26,6 +26,8 @@ MVC：JFinal 3.3
 （5）系统管理(角色、管理员、存储插件、地区、设置、模板、清除缓存)
 
 官网地址: [http://www.jrecms.com](http://www.jrecms.com)
+
+体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
 
  联系QQ：644080923 交流群:575535321
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")

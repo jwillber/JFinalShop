@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost2
-Source Server Version : 50634
-Source Host           : outerkuaifankeji.mysql.rds.aliyuncs.com:3306
-Source Database       : o2o-kuaifankeji
+Source Server         : localhost
+Source Server Version : 50714
+Source Host           : localhost:3308
+Source Database       : myshop
 
 Target Server Type    : MYSQL
-Target Server Version : 50634
+Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-03-29 11:15:57
+Date: 2019-03-08 16:08:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,14 +37,14 @@ CREATE TABLE `kf_ad` (
 -- ----------------------------
 -- Records of kf_ad
 -- ----------------------------
-INSERT INTO `kf_ad` VALUES ('1', '2018-03-26 20:36:55', '2018-03-26 20:36:55', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/0eacd533-2b77-47e1-a88a-d75478a6fada.jpg', '图片1', 'image', '', null, '1');
-INSERT INTO `kf_ad` VALUES ('2', '2018-03-26 20:42:22', '2018-03-26 20:42:22', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/d1b6d33b-db71-4d28-8fa0-37aafa0ab213.jpg', '图片1', 'image', '', null, '2');
-INSERT INTO `kf_ad` VALUES ('3', '2018-03-26 20:42:35', '2018-03-26 20:42:35', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/2ee891ef-0d1e-402e-a586-0f94efdcebe3.jpg', '图片2', 'image', '', null, '2');
-INSERT INTO `kf_ad` VALUES ('4', '2018-03-26 20:42:49', '2018-03-26 20:42:49', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/3c252523-8805-4a23-af40-e8d9130ebaee.jpg', '图片3', 'image', '', null, '2');
-INSERT INTO `kf_ad` VALUES ('5', '2018-03-26 20:43:00', '2018-03-26 21:17:20', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/9851ca3c-6616-41a4-9846-e0449fdef5df.jpg', '图片4', 'image', '', null, '2');
-INSERT INTO `kf_ad` VALUES ('6', '2018-03-27 09:48:15', '2018-03-27 09:48:15', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/667f442c-3b0f-47bb-a05b-a3c1b4af761a.jpg', '图片1', 'image', '', null, '3');
-INSERT INTO `kf_ad` VALUES ('7', '2018-03-27 09:48:28', '2018-03-27 09:48:28', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/bd0ab5eb-ba15-4508-95b0-959857abfd9d.jpg', '图片2', 'image', '', null, '3');
-INSERT INTO `kf_ad` VALUES ('8', '2018-03-27 09:49:57', '2018-03-27 09:49:57', null, null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/baa3a651-d095-4cd8-b400-3591eefa087d.jpg', '图片3', 'image', '', null, '3');
+INSERT INTO `kf_ad` VALUES ('1', '2018-03-26 20:36:55', '2018-03-26 20:36:55', null, null, '/upload/banner1.jpg', '图片1', 'image', '', null, '1');
+INSERT INTO `kf_ad` VALUES ('2', '2018-03-26 20:42:22', '2018-03-26 20:42:22', null, null, '/upload/banner2.jpg', '图片1', 'image', '', null, '2');
+INSERT INTO `kf_ad` VALUES ('3', '2018-03-26 20:42:35', '2018-03-26 20:42:35', null, null, '/upload/banner2.jpg', '图片2', 'image', '', null, '2');
+INSERT INTO `kf_ad` VALUES ('4', '2018-03-26 20:42:49', '2018-03-26 20:42:49', null, null, '/upload/banner2.jpg', '图片3', 'image', '', null, '2');
+INSERT INTO `kf_ad` VALUES ('5', '2018-03-26 20:43:00', '2018-03-26 21:17:20', null, null, '/upload/banner2.jpg', '图片4', 'image', '', null, '2');
+INSERT INTO `kf_ad` VALUES ('6', '2018-03-27 09:48:15', '2018-03-27 09:48:15', null, null, '/upload/banner3.jpg', '图片1', 'image', '', null, '3');
+INSERT INTO `kf_ad` VALUES ('7', '2018-03-27 09:48:28', '2018-03-27 09:48:28', null, null, '/upload/banner3.jpg', '图片2', 'image', '', null, '3');
+INSERT INTO `kf_ad` VALUES ('8', '2018-03-27 09:49:57', '2018-03-27 09:49:57', null, null, '/upload/banner3.jpg', '图片3', 'image', '', null, '3');
 
 -- ----------------------------
 -- Table structure for `kf_admin`
@@ -3635,33 +3635,33 @@ CREATE TABLE `kf_product` (
 -- ----------------------------
 -- Records of kf_product
 -- ----------------------------
-INSERT INTO `kf_product` VALUES ('1', '2018-03-26 20:59:51', '2018-03-26 20:59:51', '水晶冰菜', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/e9d2466b-0e58-44e9-ac14-2c2e1cf2fa01.jpg', null, '0', '1', '[]', null, null, '2018032620595159017780', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('2', '2018-03-26 21:01:25', '2018-03-26 21:01:25', '芥兰', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/c956bba4-2389-418e-9fd9-8f13a2f532df.jpg', null, '0', '1', '[]', null, null, '2018032621012504727658', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('3', '2018-03-26 21:02:35', '2018-03-26 21:02:35', '白菜苔', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/dcb3fd15-f630-4daa-b69d-191eabe9529e.jpg', null, '0', '1', '[]', null, null, '2018032621023556619103', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('4', '2018-03-26 21:02:55', '2018-03-26 21:02:55', '胡萝卜', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/c7dec753-26e8-4a3a-b3e6-c92dc6f88842.jpg', null, '0', '1', '[]', null, null, '2018032621025526608876', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('5', '2018-03-26 21:03:07', '2018-03-26 21:03:07', '黄瓜', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/beef8c88-5695-4b90-929b-be565ae76d48.jpg', null, '0', '1', '[]', null, null, '2018032621030776583926', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('6', '2018-03-26 21:03:20', '2018-03-26 21:03:20', '土豆', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/47fee782-b935-466b-aa0a-3b93baf00fdf.jpg', null, '0', '1', '[]', null, null, '2018032621032060619084', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('7', '2018-03-26 21:03:45', '2018-03-26 21:03:45', '洋葱', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/ed813d85-f3bc-43b4-afae-ebc2a2209897.jpg', null, '0', '1', '[]', null, null, '2018032621034500643710', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('8', '2018-03-26 21:03:57', '2018-03-26 21:03:57', '茄子', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/59a52c9f-801d-4d4f-8020-e4721fb23c94.jpg', null, '0', '1', '[]', null, null, '2018032621035703878019', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('9', '2018-03-26 21:04:24', '2018-03-26 21:04:24', '彩椒', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/ae967d13-65da-4da4-a55d-80de6fb84cae.jpg', null, '0', '1', '[]', null, null, '2018032621042465484572', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('10', '2018-03-26 21:04:45', '2018-03-26 21:04:45', '小瓜', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/eeb9705c-2075-423c-958f-8cd4eacaf4ed.jpg', null, '0', '1', '[]', null, null, '2018032621044519093795', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('11', '2018-03-26 21:05:09', '2018-03-26 21:05:09', '西兰花', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/8aff8d1b-c173-43a0-a542-42b6ae532155.jpg', null, '0', '1', '[]', null, null, '2018032621050984573534', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('12', '2018-03-26 21:05:28', '2018-03-26 21:05:28', '红菜苔', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/b40fa4ca-5443-4452-bdaf-c00aa35dfbb6.jpg', null, '0', '1', '[]', null, null, '2018032621052888414394', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('13', '2018-03-26 21:11:16', '2018-03-26 21:11:16', '柿子', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/941535a0-7779-4f58-be5b-b100137cceb5.jpg', null, '0', '2', '[]', null, null, '2018032621111669817987', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('14', '2018-03-26 21:11:30', '2018-03-26 21:11:30', '苹果', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/61e0e60a-cee9-4810-958f-31ccd0879508.jpg', null, '0', '2', '[]', null, null, '2018032621113009371899', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('15', '2018-03-26 21:12:07', '2018-03-26 21:13:44', '绿奇异果', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/4d060852-7b0f-4a3e-becb-3a0bb4851beb.jpg', null, '0', '2', '[]', null, null, '2018032621120760767240', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('16', '2018-03-26 21:12:30', '2018-03-26 21:13:39', '葡萄', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/66b08fb6-2644-4e5b-9d4e-20ed098ca491.jpg', null, '0', '2', '[]', null, null, '2018032621123022369697', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('17', '2018-03-26 21:12:48', '2018-03-26 21:13:34', '圣女果', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/e5ccbd75-7a06-4f00-85a8-35a2f1e428ef.jpg', null, '0', '2', '[]', null, null, '2018032621124849238615', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('18', '2018-03-26 21:13:09', '2018-03-26 21:13:29', '橘子', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/b0fab97d-a2bd-4651-a562-9d20cb25c00b.jpg', null, '0', '2', '[]', null, null, '2018032621130915761116', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('19', '2018-03-26 21:15:03', '2018-03-26 21:15:03', '牛腩', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/6086e5ee-7109-47bc-95c6-b89827faddd1.jpg', null, '0', '3', '[]', null, null, '2018032621150317844154', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('20', '2018-03-26 21:15:16', '2018-03-26 21:15:16', '羊排', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/d098aaf8-934a-49ae-bcb6-1f7509475c23.jpg', null, '0', '3', '[]', null, null, '2018032621151679704694', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('21', '2018-03-26 21:15:36', '2018-03-26 21:15:41', '活鸡肉', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/fa3c8cf3-c1c5-48d6-ab78-8e7d9ad9a8b8.jpg', null, '0', '3', '[]', null, null, '2018032621153653723804', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('22', '2018-03-26 21:15:55', '2018-03-26 21:15:55', '鸡蛋', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/d33a2ca3-4d1a-4b99-97dc-2e3063368d5c.jpg', null, '0', '3', '[]', null, null, '2018032621155524102020', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('23', '2018-03-26 21:16:08', '2018-03-26 21:16:08', '豆腐干', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/38fbea96-59b7-4894-8425-b19ab7dc101a.jpg', null, '0', '3', '[]', null, null, '2018032621160858894180', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('24', '2018-03-26 21:16:32', '2018-03-26 21:16:32', '鱼丸', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/cf58f08d-257c-42c6-959b-83f97b29f721.jpg', null, '0', '3', '[]', null, null, '2018032621163264256509', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('25', '2018-03-26 21:18:42', '2018-03-26 21:18:42', '金健米', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/67c4e0a1-cbed-4381-9b99-d23a5dfc6b51.jpg', null, '0', '4', '[]', null, null, '2018032621184290666997', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('26', '2018-03-26 21:19:04', '2018-03-26 21:19:04', '茶油', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/5a354330-a030-4f04-b304-7653f69275c1.jpg', null, '0', '4', '[]', null, null, '2018032621190426746401', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
-INSERT INTO `kf_product` VALUES ('27', '2018-03-26 21:20:44', '2018-03-26 21:20:44', '刀削面', null, 'http://wwwimage.kuaifankeji.com/upload/image/201803/45ea7414-d4d6-45f4-99ce-a7bff775eadd.jpg', null, '0', '4', '[]', null, null, '2018032621204495486181', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('1', '2018-03-26 20:59:51', '2018-03-26 20:59:51', '水晶冰菜', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032620595159017780', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('2', '2018-03-26 21:01:25', '2018-03-26 21:01:25', '芥兰', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621012504727658', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('3', '2018-03-26 21:02:35', '2018-03-26 21:02:35', '白菜苔', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621023556619103', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('4', '2018-03-26 21:02:55', '2018-03-26 21:02:55', '胡萝卜', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621025526608876', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('5', '2018-03-26 21:03:07', '2018-03-26 21:03:07', '黄瓜', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621030776583926', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('6', '2018-03-26 21:03:20', '2018-03-26 21:03:20', '土豆', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621032060619084', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('7', '2018-03-26 21:03:45', '2018-03-26 21:03:45', '洋葱', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621034500643710', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('8', '2018-03-26 21:03:57', '2018-03-26 21:03:57', '茄子', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621035703878019', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('9', '2018-03-26 21:04:24', '2018-03-26 21:04:24', '彩椒', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621042465484572', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('10', '2018-03-26 21:04:45', '2018-03-26 21:04:45', '小瓜', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621044519093795', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('11', '2018-03-26 21:05:09', '2018-03-26 21:05:09', '西兰花', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621050984573534', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('12', '2018-03-26 21:05:28', '2018-03-26 21:05:28', '红菜苔', null, '/upload/product.jpg', null, '0', '1', '[]', null, null, '2018032621052888414394', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('13', '2018-03-26 21:11:16', '2018-03-26 21:11:16', '柿子', null, '/upload/product.jpg', null, '0', '2', '[]', null, null, '2018032621111669817987', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('14', '2018-03-26 21:11:30', '2018-03-26 21:11:30', '苹果', null, '/upload/product.jpg', null, '0', '2', '[]', null, null, '2018032621113009371899', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('15', '2018-03-26 21:12:07', '2018-03-26 21:13:44', '绿奇异果', null, '/upload/product.jpg', null, '0', '2', '[]', null, null, '2018032621120760767240', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('16', '2018-03-26 21:12:30', '2018-03-26 21:13:39', '葡萄', null, '/upload/product.jpg', null, '0', '2', '[]', null, null, '2018032621123022369697', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('17', '2018-03-26 21:12:48', '2018-03-26 21:13:34', '圣女果', null, '/upload/product.jpg', null, '0', '2', '[]', null, null, '2018032621124849238615', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('18', '2018-03-26 21:13:09', '2018-03-26 21:13:29', '橘子', null, '/upload/product.jpg', null, '0', '2', '[]', null, null, '2018032621130915761116', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('19', '2018-03-26 21:15:03', '2018-03-26 21:15:03', '牛腩', null, '/upload/product.jpg', null, '0', '3', '[]', null, null, '2018032621150317844154', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('20', '2018-03-26 21:15:16', '2018-03-26 21:15:16', '羊排', null, '/upload/product.jpg', null, '0', '3', '[]', null, null, '2018032621151679704694', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('21', '2018-03-26 21:15:36', '2018-03-26 21:15:41', '活鸡肉', null, '/upload/product.jpg', null, '0', '3', '[]', null, null, '2018032621153653723804', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('22', '2018-03-26 21:15:55', '2018-03-26 21:15:55', '鸡蛋', null, '/upload/product.jpg', null, '0', '3', '[]', null, null, '2018032621155524102020', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('23', '2018-03-26 21:16:08', '2018-03-26 21:16:08', '豆腐干', null, '/upload/product.jpg', null, '0', '3', '[]', null, null, '2018032621160858894180', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('24', '2018-03-26 21:16:32', '2018-03-26 21:16:32', '鱼丸', null, '/upload/product.jpg', null, '0', '3', '[]', null, null, '2018032621163264256509', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('25', '2018-03-26 21:18:42', '2018-03-26 21:18:42', '金健米', null, '/upload/product.jpg', null, '0', '4', '[]', null, null, '2018032621184290666997', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('26', '2018-03-26 21:19:04', '2018-03-26 21:19:04', '茶油', null, '/upload/product.jpg', null, '0', '4', '[]', null, null, '2018032621190426746401', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
+INSERT INTO `kf_product` VALUES ('27', '2018-03-26 21:20:44', '2018-03-26 21:20:44', '刀削面', null, '/upload/product.jpg', null, '0', '4', '[]', null, null, '2018032621204495486181', null, null, '0', '', null, '1.00', '1.00', '1.00', '[]');
 
 -- ----------------------------
 -- Table structure for `kf_product_category`
@@ -3784,4 +3784,9 @@ CREATE TABLE `kf_storage_plugin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+-- ----------------------------
+-- Records of kf_storage_plugin
+-- ----------------------------
+INSERT INTO `kf_storage_plugin` VALUES ('ftpStoragePlugin', 'FTP存储', '3', '{}', '');
+INSERT INTO `kf_storage_plugin` VALUES ('localStoragePlugin', '本地文件存储', '1', '{}', '');
+INSERT INTO `kf_storage_plugin` VALUES ('ossStoragePlugin', '阿里云存储', '2', '{}', '');

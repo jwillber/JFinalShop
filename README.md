@@ -1,5 +1,5 @@
 # JFinalShop
-JFinaShop轻量级商城系统,极速开发,支持手机端和PC端,让您轻松打造自己的独立商城，同时也方便二次开发，让您快速搭建个性化独立商城，为您节约更多时间，去陪恋人、家人和朋友。
+JFinaShop轻量级商城系统,极速开发,支持手机端和PC端和小程序,让您轻松打造自己的独立商城，同时也方便二次开发，让您快速搭建个性化独立商城，为您节约更多时间，去陪恋人、家人和朋友。
 
 技术框架
 
@@ -28,6 +28,10 @@ MVC：JFinal 3.6
 官网地址: [http://www.jrecms.com](http://www.jrecms.com)
 
 体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
+
+小程序体验：
+
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0320/113856_974899e2_623319.jpeg "oIRb74gbYh4cRAeqUh3GVnivYIxE.jpg")
 
  联系QQ：644080923 交流群:575535321
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")

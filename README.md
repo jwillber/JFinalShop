@@ -31,7 +31,7 @@ MVC：JFinal 3.6
 
 小程序体验：
 
-![输入图片说明](https://images.gitee.com/uploads/images/2019/0320/113856_974899e2_623319.jpeg "oIRb74gbYh4cRAeqUh3GVnivYIxE.jpg")
+
 
  联系QQ：644080923 交流群:575535321
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")

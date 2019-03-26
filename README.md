@@ -30,8 +30,13 @@ MVC：JFinal 3.6
 体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
 
 小程序体验：
-
-
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg "728e2e87bb0b5e8058b250e107206cb.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg "b3549e3846cbe81d660164e24a4b597.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165449_d0c33fcf_623319.jpeg "74e2177da64af0c7ba935dfc5afb288.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165503_bddcb65a_623319.jpeg "f624517f362bee9add04131a9ba8e87.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165513_d51d2ad9_623319.jpeg "82cdbaf16ff78d5264dc8bd02251a41.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165524_e9acaf5b_623319.jpeg "93bfb7e1ca098cd46e338e8f6829795.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165534_1e25debe_623319.jpeg "6316f59f1cc52b2187a752566daf3b5.jpg")
 
  联系QQ：644080923 交流群:575535321
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")

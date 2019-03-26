@@ -31,7 +31,7 @@ MVC：JFinal 3.6
 
 小程序体验：
 <img src="https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg"  height="330">
-
+<img src="https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"  height="330">
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg "b3549e3846cbe81d660164e24a4b597.jpg")
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165449_d0c33fcf_623319.jpeg "74e2177da64af0c7ba935dfc5afb288.jpg")
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165503_bddcb65a_623319.jpeg "f624517f362bee9add04131a9ba8e87.jpg")

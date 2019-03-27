@@ -29,7 +29,11 @@ MVC：JFinal 3.6
 
 体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
 
-小程序体验：
+
+ 联系QQ：644080923 交流群:575535321
+
+
+小程序端：
 
 
 <img src="https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg"  height="330">
@@ -49,10 +53,11 @@ MVC：JFinal 3.6
 <img src="https://images.gitee.com/uploads/images/2019/0326/165534_1e25debe_623319.jpeg"  height="330">
 
 
+PC端:
 
-
- 联系QQ：644080923 交流群:575535321
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")
+
+手机端:
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112514_d895dfac_623319.png "eb9ada18c3b3b239d11a76fe9c348048.png")
 ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112522_e614b646_623319.png "ed6843ffbb5ae6518e3380b0a3790c20.png")

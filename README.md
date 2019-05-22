@@ -59,7 +59,7 @@ JFinaShop轻量级商城系统,极速开发,支持手机端和PC端和小程序,
 <img src="https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"  height="330">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://images.gitee.com/uploads/images/2019/0326/165449_d0c33fcf_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br><br><br><br>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
 <img src="https://images.gitee.com/uploads/images/2019/0326/165503_bddcb65a_623319.jpeg"  height="330">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://images.gitee.com/uploads/images/2019/0326/165513_d51d2ad9_623319.jpeg"  height="330">

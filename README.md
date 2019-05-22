@@ -1,37 +1,54 @@
-# JFinalShop
+# JFinalShop 
+
+#### 介绍
 JFinaShop轻量级商城系统,极速开发,支持手机端和PC端和小程序,让您轻松打造自己的独立商城，同时也方便二次开发，让您快速搭建个性化独立商城，为您节约更多时间，去陪恋人、家人和朋友。
 
-技术框架
+#### 软件架构
+1. MVC:JFinal 3.8
+2. 页面:enjoy
+3. 缓存:ehcache
+4. 数据库:Mysql
 
-MVC：JFinal 3.6
+#### 后台功能
 
-页面:enjoy
+1. 商品管理（商品分类、商品参数、商品管理）
+2. 文章管理(文章分类、文章管理)
+3. 会员管理(会员管理)
+4. 订单管理(订单管理)
+5. 营销管理(广告、广告位、友情链接)
+6. 系统管理(角色、管理员、存储插件、地区、设置、模板、清除缓存)
 
-缓存:ehcache
+#### 模板标签
 
-数据库Mysql
+1. 广告位标签#ad_position
+2. 下级文章分类列表标签#article_category_children_list
+3. 上级文章分类列表标签#article_category_parent_list
+4. 顶级文章分类列表标签#article_category_root_list
+5. 文章列表标签#article_list
+6. 友情链接列表标签#friend_link_list
+7. 分页标签#pagination
+8. 下级商品分类列表标签#product_category_children_list
+9. 上级商品分类列表标签#product_category_parent_list
+10. 顶级商品分类列表标签#product_category_root_list
+11. 商品列表标签#product_list
 
-功能有：
+#### 支付
 
-（1）商品管理（商品分类、商品参数、商品管理）
+1. 支付宝（支付宝网页支付、支付宝APP支付、支付宝手机网站支付）
+2. 微信支付（微信公众号支付、微信扫码支付、微信APP支付、微信H5支付）
 
-（2）文章管理(文章分类、文章管理)
+#### 交流
 
-（3）会员管理(会员管理)
+1. 联系QQ：644080923 交流群:575535321
+2. 官网地址:[http://www.jrecms.com](http://www.jrecms.com)
+3. 体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
 
-（4）订单管理(订单管理)
+#### 帮助文档
 
-（4）营销管理(广告、广告位、友情链接)
+1. 文档说明：[http://www.jrecms.com/category/48](http://www.jrecms.com/category/48)
+2. 新版本获取:[http://www.jrecms.com/category/46](http://www.jrecms.com/category/46)
 
-（5）系统管理(角色、管理员、存储插件、地区、设置、模板、清除缓存)
-
-官网地址: [http://www.jrecms.com](http://www.jrecms.com)
-
-体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
-
-
- 联系QQ：644080923 交流群:575535321
-
+#### 功能截图
 
 小程序端：
 

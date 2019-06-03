@@ -68,6 +68,23 @@ JFinaShop轻量级商城系统,极速开发,支持手机端和PC端和小程序,
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://images.gitee.com/uploads/images/2019/0326/165534_1e25debe_623319.jpeg"  height="330">
 
+三级分销：
+
+<img src="https://images.gitee.com/uploads/images/2019/0603/135112_2a7b0fdd_623319.jpeg"  height="330">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://images.gitee.com/uploads/images/2019/0603/135332_a2cbe957_623319.jpeg"  height="330">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://images.gitee.com/uploads/images/2019/0603/135356_08919773_623319.jpeg"  height="330">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://images.gitee.com/uploads/images/2019/0603/135342_2b7e0083_623319.jpeg"  height="330">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+<img src="https://images.gitee.com/uploads/images/2019/0603/135442_eebd4b40_623319.jpeg"  height="330">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://images.gitee.com/uploads/images/2019/0603/135453_f9aeef0c_623319.jpeg"  height="330">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://images.gitee.com/uploads/images/2019/0603/135502_1fd92c6c_623319.jpeg"  height="330">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 PC端:
 

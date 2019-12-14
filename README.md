@@ -3,8 +3,14 @@
 #### 介绍
 JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序、微信公众号、APP、三级分销,让您轻松打造自己的独立商城，同时也方便二次开发，让您快速搭建个性化独立商城，为您节约更多时间，去陪恋人、家人和朋友。
 
+####  <font color=red>另有一款功能很全的商城系统（100元获取源码）</font>
+
+1. <font color=red>前台：http://jfinalb2c.jrecms.com</font>
+2. 后台：http://jfinalb2c.jrecms.com/admin/login 账号:admin 密码:123456
+
+
 #### 软件架构
-1. MVC:JFinal 4.1
+1. MVC:JFinal
 2. 页面:enjoy
 3. 缓存:ehcache
 4. 数据库:Mysql
@@ -40,14 +46,14 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 
 #### 交流
 
-1. 联系QQ：644080923 交流群:575535321
+1. 联系QQ：644080923
 2. 官网地址:[http://www.jrecms.com](http://www.jrecms.com)
 3. 体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
 
 #### 帮助文档
 
-1. 文档说明：[http://www.jrecms.com/category/48](http://www.jrecms.com/category/48)
-2. 新版本获取:[http://www.jrecms.com/category/46](http://www.jrecms.com/category/46)
+1. 文档说明：
+2. 新版本获取:
 
 #### 功能截图
 

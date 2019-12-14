@@ -7,9 +7,10 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 
 1. 前台：http://jfinalb2c.jrecms.com
 2. 后台：http://jfinalb2c.jrecms.com/admin/login 账号:admin 密码:123456
-3. 捐献二维码<br/>
-![输入图片说明](https://images.gitee.com/uploads/images/2019/1214/134546_65e31873_623319.png "shoukuan.png")
 4. 获取源码：  微信：heyewei123   QQ:644080923
+4. 捐献二维码<br/>
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1214/135512_cb408dd6_623319.png "shoukuan.png")
+
 
 #### 软件架构
 1. MVC:JFinal

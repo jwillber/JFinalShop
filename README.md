@@ -51,7 +51,7 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 
 ####  另有一款功能很全的商城系统
 
-1. 前台：http://jfinalb2c.jrecms.com
+1. 前台：http://jfinalb2c.jrecms.com(手机端自适应，手机模式打开即可)
 2. 后台：http://jfinalb2c.jrecms.com/admin/login 账号:admin 密码:123456
 4. 获取源码：  微信：heyewei123   QQ:644080923
 4. 捐献二维码<br/>

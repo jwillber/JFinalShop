@@ -59,7 +59,7 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 ####  微信分销商城系统
 1. 前台：[http://distribute.jrecms.com](http://distribute.jrecms.com)  (手机访问)
 2. 后台：[http://distribute.jrecms.com/admin/login](http://distribute.jrecms.com/admin/login) 账号:admin 密码:123456
-3. 演示截图
+3. 演示截图<br>
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0111/142549_acedcaf2_623319.jpeg "c75c9c045f7e661ce3d3cb72d9fa1f4.jpg")
 
 ####  捐献

@@ -49,13 +49,26 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 1. 文档说明：
 2. 新版本获取:
 
-####  另有一款功能很全的商城系统
+####  B2C商城系统
 
-1. 前台：http://jfinalb2c.jrecms.com(手机端自适应，手机模式打开即可)
-2. 后台：http://jfinalb2c.jrecms.com/admin/login 账号:admin 密码:123456
-4. 获取源码：  微信：heyewei123   QQ:644080923
-4. 捐献二维码<br/>
+1. 前台：[http://jfinalb2c.jrecms.com](http://)                  (手机端自适应，手机模式打开即可)
+2. 后台：[http://jfinalb2c.jrecms.com/admin/login](http://)      账号:admin 密码:123456
+3. 演示截图
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0111/142646_f58bbc91_623319.png "屏幕截图.png")
+
+####  微信分销商城系统
+1. 前台：[http://distribute.jrecms.com](http://distribute.jrecms.com)  (手机访问)
+2. 后台：[http://distribute.jrecms.com/admin/login](http://distribute.jrecms.com/admin/login) 账号:admin 密码:123456
+3. 演示截图
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0111/142549_acedcaf2_623319.jpeg "c75c9c045f7e661ce3d3cb72d9fa1f4.jpg")
+
+####  捐献
+
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/1214/135512_cb408dd6_623319.png "shoukuan.png")
+
+####  联系
+
+获取源码：  微信：heyewei123   QQ:644080923
 
 #### 功能截图
 

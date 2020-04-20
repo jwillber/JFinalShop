@@ -19,57 +19,17 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141248_8ca2401f_623319.png "屏幕截图.png")  |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141304_f4023892_623319.png "屏幕截图.png")  |
 
  **手机端:** 
-| ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112514_d895dfac_623319.png "eb9ada18c3b3b239d11a76fe9c348048.png")    |   ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112522_e614b646_623319.png "ed6843ffbb5ae6518e3380b0a3790c20.png")  | ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112534_9bd7d9a9_623319.png "c4c82574b0b8d590c6cca70ed837d18a.png")    |
+|   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141711_03acb60c_623319.png "屏幕截图.png")  |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141730_528fc209_623319.png "屏幕截图.png")  |    ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141741_9e1b0eb6_623319.png "屏幕截图.png") |
 | --- | --- | --- |
-|  ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112543_b1e12126_623319.png "90eb2f3bebf88ca349a299e49eed3d4d.png")   |  ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112550_88681c84_623319.png "微信图片_20180329112318.png")   |     |
-|     |     |     |
-
- 
-
-
-
-
-
-
-
+|  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141812_75652e24_623319.png "屏幕截图.png")   |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141825_042bc646_623319.png "屏幕截图.png")  |    ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141843_17e1e60a_623319.png "屏幕截图.png") |
 
  **小程序端：** 
-
-<img src="https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0326/165449_d0c33fcf_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
-<img src="https://images.gitee.com/uploads/images/2019/0326/165503_bddcb65a_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0326/165513_d51d2ad9_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0326/165524_e9acaf5b_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0326/165534_1e25debe_623319.jpeg"  height="330">
+|  ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg "屏幕截图.png")   |   ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"屏幕截图.png")  |    ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"屏幕截图.png") |
+| --- | --- | --- |
+|   ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165449_d0c33fcf_623319.jpeg"屏幕截图.png")  |    ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165503_bddcb65a_623319.jpeg "屏幕截图.png") |   ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165513_d51d2ad9_623319.jpeg "屏幕截图.png")  |
+|  ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165524_e9acaf5b_623319.jpeg "屏幕截图.png")   |   ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165534_1e25debe_623319.jpeg "屏幕截图.png")  |   |
 
  **三级分销：** 
-
-<img src="https://images.gitee.com/uploads/images/2019/0603/135112_2a7b0fdd_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0603/135332_a2cbe957_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0603/135356_08919773_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0603/135342_2b7e0083_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
-<img src="https://images.gitee.com/uploads/images/2019/0603/135442_eebd4b40_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0603/135453_f9aeef0c_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://images.gitee.com/uploads/images/2019/0603/135502_1fd92c6c_623319.jpeg"  height="330">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
 
 
 #### 支付

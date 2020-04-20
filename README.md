@@ -11,6 +11,25 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 
 #### 功能截图
 
+ **PC端:** 
+|  ![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")   |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141127_14d2898a_623319.png "屏幕截图.png")  |
+| --- | --- |
+|  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141144_c0c89373_623319.png "屏幕截图.png")   |     ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141205_be5fe0e2_623319.png "屏幕截图.png")|
+| --- | --- |
+|   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141248_8ca2401f_623319.png "屏幕截图.png")  |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141304_f4023892_623319.png "屏幕截图.png")  |
+
+
+
+ ** 手机端:** 
+ 
+![输入图片说明](https://gitee.com/uploads/images/2018/0329/112514_d895dfac_623319.png "eb9ada18c3b3b239d11a76fe9c348048.png")
+![输入图片说明](https://gitee.com/uploads/images/2018/0329/112522_e614b646_623319.png "ed6843ffbb5ae6518e3380b0a3790c20.png")
+
+![输入图片说明](https://gitee.com/uploads/images/2018/0329/112534_9bd7d9a9_623319.png "c4c82574b0b8d590c6cca70ed837d18a.png")
+![输入图片说明](https://gitee.com/uploads/images/2018/0329/112543_b1e12126_623319.png "90eb2f3bebf88ca349a299e49eed3d4d.png")
+
+![输入图片说明](https://gitee.com/uploads/images/2018/0329/112550_88681c84_623319.png "微信图片_20180329112318.png")
+
  **小程序端：** 
 
 <img src="https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg"  height="330">
@@ -47,19 +66,7 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
- **PC端:** 
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0329/112459_63640c64_623319.png "091fb920ee72bb79705cb32173cfb924.png")
-
- ** 手机端:** 
- 
-![输入图片说明](https://gitee.com/uploads/images/2018/0329/112514_d895dfac_623319.png "eb9ada18c3b3b239d11a76fe9c348048.png")
-![输入图片说明](https://gitee.com/uploads/images/2018/0329/112522_e614b646_623319.png "ed6843ffbb5ae6518e3380b0a3790c20.png")
-
-![输入图片说明](https://gitee.com/uploads/images/2018/0329/112534_9bd7d9a9_623319.png "c4c82574b0b8d590c6cca70ed837d18a.png")
-![输入图片说明](https://gitee.com/uploads/images/2018/0329/112543_b1e12126_623319.png "90eb2f3bebf88ca349a299e49eed3d4d.png")
-
-![输入图片说明](https://gitee.com/uploads/images/2018/0329/112550_88681c84_623319.png "微信图片_20180329112318.png")
 
 
 #### 支付

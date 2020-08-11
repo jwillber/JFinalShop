@@ -16,7 +16,7 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 | --- | --- |
 |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151058_71b6721f_623319.png "屏幕截图.png")   |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151134_3789a404_623319.png "屏幕截图.png")   |
 | --- | --- |
-|   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141248_8ca2401f_623319.png "屏幕截图.png")  |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141304_f4023892_623319.png "屏幕截图.png")  |
+|   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151242_585fec6f_623319.png "屏幕截图.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151306_0aed59c5_623319.png "屏幕截图.png")  |
 
  **手机端:** 
 |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141711_03acb60c_623319.png "屏幕截图.png")  |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141730_528fc209_623319.png "屏幕截图.png")  |    ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141741_9e1b0eb6_623319.png "屏幕截图.png") |

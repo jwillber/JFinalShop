@@ -19,9 +19,9 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151242_585fec6f_623319.png "屏幕截图.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151306_0aed59c5_623319.png "屏幕截图.png")  |
 
  **手机端:** 
-|   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141711_03acb60c_623319.png "屏幕截图.png")  |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141730_528fc209_623319.png "屏幕截图.png")  |    ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141741_9e1b0eb6_623319.png "屏幕截图.png") |
+|  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151417_39068c46_623319.png "屏幕截图.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151431_0d15f54a_623319.png "屏幕截图.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151454_50aa3480_623319.png "屏幕截图.png")   |
 | --- | --- | --- |
-|  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141812_75652e24_623319.png "屏幕截图.png")   |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141825_042bc646_623319.png "屏幕截图.png")  |    ![输入图片说明](https://images.gitee.com/uploads/images/2020/0420/141843_17e1e60a_623319.png "屏幕截图.png") |
+|  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151513_348fc4da_623319.png "屏幕截图.png")   |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151529_27ced8dd_623319.png "屏幕截图.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151546_0bc0c02f_623319.png "屏幕截图.png") |
 
  **小程序端：** 
 |  ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg "屏幕截图.png")   |   ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"屏幕截图.png")  |    ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"屏幕截图.png") |

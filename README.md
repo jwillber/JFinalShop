@@ -23,15 +23,6 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 | --- | --- | --- |
 |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151513_348fc4da_623319.png "屏幕截图.png")   |   ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151529_27ced8dd_623319.png "屏幕截图.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/151546_0bc0c02f_623319.png "屏幕截图.png") |
 
- **小程序端：** 
-|  ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165424_50c58c2e_623319.jpeg "屏幕截图.png")   |   ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"屏幕截图.png")  |    ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165440_93809373_623319.jpeg"屏幕截图.png") |
-| --- | --- | --- |
-|   ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165449_d0c33fcf_623319.jpeg"屏幕截图.png")  |    ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165503_bddcb65a_623319.jpeg "屏幕截图.png") |   ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165513_d51d2ad9_623319.jpeg "屏幕截图.png")  |
-|  ![输入图片说明](https://images.gitee.com/uploads/images/2019/0326/165524_e9acaf5b_623319.jpeg "屏幕截图.png")   |   ![输入图片说明]( https://images.gitee.com/uploads/images/2019/0326/165534_1e25debe_623319.jpeg "屏幕截图.png")  |   |
-
- **三级分销：** 
-
-
 #### 支付
 
 1. 支付宝（支付宝网页支付、支付宝APP支付、支付宝手机网站支付）
@@ -42,4 +33,4 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 1. 联系QQ：644080923
 2. 联系微信:heyewei123
 2. 官网地址:[http://www.jrecms.com](http://www.jrecms.com)
-3. 体验地址: 前台:http://shop.jrecms.com   后台:http://shop.jrecms.com/admin/login 账号:read 123456
+3. 体验地址: 前台:http://www.augloble.com/   后台:http://shop.jrecms.com/admin/login 账号:read 123456

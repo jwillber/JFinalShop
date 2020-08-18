@@ -33,4 +33,4 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 1. 联系QQ：644080923
 2. 联系微信:heyewei123
 2. 官网地址:[http://www.jrecms.com](http://www.jrecms.com)
-3. 体验地址: 前台:http://www.augloble.com/   后台:http://shop.jrecms.com/admin/login 账号:read 123456
+3. 体验地址: 前台:http://www.augloble.com   后台:http://shop.jrecms.com/admin/login 账号:read 123456

@@ -29,12 +29,5 @@ JFinaShop轻量级商城系统,极速开发,支持手机端、PC端、小程序�
 2. 微信支付（微信公众号支付、微信扫码支付、微信APP支付、微信H5支付）
 
 #### 交流
-
-1. 联系QQ：644080923
-2. 联系微信:heyewei123
-2. 官网地址:[http://www.jrecms.com](http://www.jrecms.com)
-3. 体验地址: 前台:http://www.augloble.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
-
-#### 赞助
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0820/112916_a51f40c8_623319.png "shoukuan.png")
+1. 官网地址:[http://www.jrecms.com](http://www.jrecms.com)
+2. 体验地址: 前台:http://www.augloble.com   后台:http://shop.jrecms.com/admin/login 账号:admin 123456
